@@ -4,3 +4,12 @@
 
 [node name="BombSpawner" type="Node2D" unique_id=1544311222]
 script = ExtResource("1_qykmh")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=143849276]
+position = Vector2(11, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=477951227]
+wait_time = 0.7
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="on_timer_end"]

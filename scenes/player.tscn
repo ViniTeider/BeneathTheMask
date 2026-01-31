@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bddxfxcv27cgj"]
 
 [ext_resource type="Script" uid="uid://fn6yeh61qs03" path="res://Scripts/Player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://dtu60tvyx6nxl" path="res://Sprites/player_idle.png" id="2_kyqiw"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u8vuu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
+size = Vector2(11.0115185, 192.83815)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1433225565]
 collision_mask = 14
@@ -12,11 +12,13 @@ script = ExtResource("1_3vyb7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=416489012]
 position = Vector2(-4.7683716e-07, 4.7683716e-07)
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_u8vuu")
+texture = ExtResource("2_kyqiw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=433342562]
-shape = SubResource("RectangleShape2D_3vyb7")
+position = Vector2(0.9999997, 1.9999998)
+rotation = -3.1415925
+scale = Vector2(1.4530239, 0.11408532)
+shape = SubResource("RectangleShape2D_kyqiw")
 
 [node name="WeaponHolder" type="Node2D" parent="." unique_id=1320936409]
 

@@ -24,6 +24,9 @@ var mask_scenes = {
 	Enum.MaskType.Melee: preload("res://scenes/sword.tscn")
 }
 
+func _ready() -> void:
+	change_mask(Enum.MaskType.Bomber)
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and (velocity.y < 2000):
 		velocity += get_gravity() * delta

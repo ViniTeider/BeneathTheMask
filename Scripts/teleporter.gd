@@ -18,3 +18,5 @@ func _on_body_entered(body: Node2D) -> void:
 			current_pos.y = screen_size.y - OFFSET
 		
 		body.global_position = current_pos
+	else:
+		body.queue_free()
