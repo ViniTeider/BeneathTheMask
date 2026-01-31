@@ -19,3 +19,14 @@ texture = SubResource("PlaceholderTexture2D_u8vuu")
 shape = SubResource("RectangleShape2D_3vyb7")
 
 [node name="WeaponHolder" type="Node2D" parent="." unique_id=1320936409]
+
+[node name="DashTimer" type="Timer" parent="." unique_id=1118039104]
+wait_time = 0.128
+one_shot = true
+
+[node name="DashColdownTimer" type="Timer" parent="." unique_id=1013867921]
+wait_time = 0.503
+one_shot = true
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="DashColdownTimer" to="." method="_on_dash_coldown_timer_timeout"]

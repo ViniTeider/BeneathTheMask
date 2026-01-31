@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const DEADZONE_X = 0.2 
 const DAMAGE_COLDOWN = 1.5
@@ -11,6 +10,8 @@ const DAMAGE_COLDOWN = 1.5
 var current_mask: Enum.MaskType
 var current_weapon: Node = null
 var is_invulnerable: bool = false
+var speed = 300.0
+var can_dash = true
 
 var mask_scenes = {
 	Enum.MaskType.Gunner: preload("res://scenes/gun.tscn"),
@@ -37,10 +38,21 @@ func _physics_process(delta: float) -> void:
 		direction = 0
 
 	if direction != 0:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 		last_direction = int(direction)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
+	
+	if Input.is_action_just_pressed("Dash_" + str(player_id)):
+		print(can_dash)
+		if(!can_dash):
+			return
+		$DashTimer.start()
+		is_invulnerable = true
+		speed = speed * 3
+		velocity.x = direction * speed
+		
+		
 
 	move_and_slide()
 
@@ -99,3 +111,16 @@ func blink_effect():
 	tween.tween_property(self, "modulate:a", 0.3, 0.1)
 	tween.tween_property(self, "modulate:a", 1.0, 0.1)
 	tween.finished.connect(func(): modulate.a = 1.0)
+
+
+func _on_dash_timer_timeout() -> void:
+	speed = 300
+	is_invulnerable = false
+	can_dash = false
+	print("caiu no on dash timer timeout")
+	$DashColdownTimer.start()
+
+
+func _on_dash_coldown_timer_timeout() -> void:
+	can_dash = true
+	print(can_dash)
