@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bddxfxcv27cgj" path="res://Scenes/Player.tscn" id="1_32lhk"]
 [ext_resource type="PackedScene" uid="uid://buifwi1gfal2s" path="res://Scenes/Floor.tscn" id="2_7g83o"]
 [ext_resource type="PackedScene" uid="uid://8majc4xnfacr" path="res://Scenes/genericPickup.tscn" id="3_5nsto"]
+[ext_resource type="PackedScene" uid="uid://ckp8h4gcb5b0j" path="res://Scenes/Teleporter.tscn" id="4_gjpho"]
 
 [node name="World" type="Node2D" unique_id=1970420695]
 
@@ -30,6 +31,8 @@ position = Vector2(654, 446)
 [node name="GenericPickup2" parent="." unique_id=1358854170 instance=ExtResource("3_5nsto")]
 position = Vector2(941, 442)
 mask_type_to_give = 1
+
+[node name="Teleporter" parent="." unique_id=1961795099 instance=ExtResource("4_gjpho")]
 
 [connection signal="body_entered" from="GenericPickup" to="GenericPickup" method="_on_body_entered"]
 [connection signal="body_entered" from="GenericPickup2" to="GenericPickup2" method="_on_body_entered"]

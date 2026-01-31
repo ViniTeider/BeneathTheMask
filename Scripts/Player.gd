@@ -18,7 +18,6 @@ var mask_scenes = {
 	Enum.MaskType.Melee: preload("res://scenes/sword.tscn")
 }
 
-
 var direction: float = 0 
 var last_direction: int = 1
 
