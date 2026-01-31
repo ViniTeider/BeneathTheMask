@@ -11,7 +11,7 @@ var player_id: int
 
 func on_explodion() -> void:
 	animation_player.play("bomb_exploding")
- 
+
 func _on_body_entered(body: Node) -> void:
 	if body.has_method("change_mask"):
 		if body.player_id == player_id:

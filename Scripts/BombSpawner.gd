@@ -23,6 +23,7 @@ func attack():
 	b.parent_direction = direction
 	b.linear_velocity.x = direction * 250
 	b.linear_velocity.y = -250
+	b.add_collision_exception_with(get_parent().get_parent())
 	
 func on_timer_end():
 	can_fire = true
