@@ -25,9 +25,21 @@ var mask_scenes = {
 	Enum.MaskType.Melee: preload("res://scenes/sword.tscn")
 }
 
+var sprite_frames = {
+	"Player_0": Scenes.PLAYER_0,
+	"Player_0_Bomber": Scenes.PLAYER_0_BOMBER,
+	"Player_0_Melee": Scenes.PLAYER_0_MELEE,
+	"Player_0_Gunner": Scenes.PLAYER_0_GUNNER,
+	"Player_1": Scenes.PLAYER_1,
+	"Player_1_Bomber": Scenes.PLAYER_1_BOMBER,
+	"Player_1_Melee": Scenes.PLAYER_1_MELEE,
+	"Player_1_Gunner": Scenes.PLAYER_1_GUNNER,
+}
+
 func _ready() -> void:
 	change_mask(Enum.MaskType.Bomber)
 	sprite_2d.play("idle")
+	sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and (velocity.y < 2000):
@@ -121,6 +133,8 @@ func change_mask(new_mask_type: Enum.MaskType):
 		current_weapon.player_id = player_id
 		weapon_holder.call_deferred("add_child", current_weapon)
 		Utils.vibrate_controller(player_id, 0.4, 0.7, 0.2)
+		var mask_sprite_name = "Player_" + str(player_id) + "_" + str(Enum.mask_names[new_mask_type])
+		sprite_2d.sprite_frames = sprite_frames[mask_sprite_name]
 
 func take_damage():
 	if is_invulnerable:
@@ -136,6 +150,7 @@ func take_damage():
 		var timer = get_tree().create_timer(DAMAGE_COLDOWN)
 		timer.timeout.connect(func(): is_invulnerable = false)
 		blink_effect()
+		sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
 	elif current_weapon == null:
 		queue_free()
 

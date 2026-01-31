@@ -7,3 +7,13 @@ var mask_scenes = {
 }
 
 var generic_pickup_scene = preload("res://Scenes/GenericPickup.tscn")
+
+const PLAYER_0 = preload("res://SpriteFrames/Player_0.tres")
+const PLAYER_0_BOMBER = preload("res://SpriteFrames/Player_0_bomber.tres")
+const PLAYER_0_MELEE = preload("res://SpriteFrames/Player_0_melee.tres")
+const PLAYER_0_GUNNER = preload("res://SpriteFrames/Player_0_gunner.tres")
+
+const PLAYER_1 = preload("res://SpriteFrames/Player_1.tres")
+const PLAYER_1_BOMBER = preload("res://SpriteFrames/Player_1_bomber.tres")
+const PLAYER_1_MELEE = preload("res://SpriteFrames/Player_1_melee.tres")
+const PLAYER_1_GUNNER = preload("res://SpriteFrames/Player_1_gunner.tres")
