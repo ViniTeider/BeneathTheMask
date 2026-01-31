@@ -30,3 +30,9 @@ texture = ExtResource("2_u7kx4")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=412576691]
 position = Vector2(33, -1)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=201213441]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="on_shoot_timer"]

@@ -7,6 +7,7 @@ const DAMAGE_COLDOWN = 1.5
 
 @export var player_id: int = 0
 @onready var weapon_holder: Node2D = $WeaponHolder
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var current_mask: Enum.MaskType
 var current_weapon: Node = null
@@ -24,8 +25,8 @@ var mask_scenes = {
 	Enum.MaskType.Melee: preload("res://scenes/sword.tscn")
 }
 
-func _ready() -> void:
-	change_mask(Enum.MaskType.Bomber)
+#func _ready() -> void:
+	#change_mask(Enum.MaskType.Melee)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and (velocity.y < 2000):
@@ -56,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Dash_" + str(player_id)):
 		if(!can_dash):
 			return
-		vibrate_controller(0.6, 0.4, 0.15)
+		Utils.vibrate_controller(player_id, 0.6, 0.4, 0.15)
 		$DashTimer.start()
 		is_invulnerable = true
 		speed = speed * 3
@@ -65,26 +66,30 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	if current_weapon == null: return
 	
-	var inputVec = Input.get_vector("Left_" + str(player_id), "Right_" + str(player_id), "Up_" + str(player_id), "Down_" + str(player_id))
+	if last_direction == 1:
+		sprite_2d.flip_h = false
+	elif last_direction == -1:
+		sprite_2d.flip_h = true
 	
-	if inputVec.length() > 0.1:
-		weapon_holder.rotation = inputVec.angle()
-	
-	#BUG: c
-	# Com o codigo: Arma fica de ponta cabeça quando para de andar, espada nao funciona por algum motivo
-	# Sem o codigo: Arma fica de ponta cabeça se o usuario vai pra esquerda
-	# boa sorte tuza :)
-	#if inputVec.x < 0:
-		#current_weapon.scale.y = -1
-	#else:
-		#current_weapon.scale.y = 1
+	if current_weapon != null:
+		var inputVec = Input.get_vector("Left_" + str(player_id), "Right_" + str(player_id), "Up_" + str(player_id), "Down_" + str(player_id))
+		
+		if inputVec.length() > 0.1:
+			weapon_holder.rotation = inputVec.angle()
+		
+		#BUG:
+		# Com o codigo: Arma fica de ponta cabeça quando para de andar, espada nao funciona por algum motivo
+		# Sem o codigo: Arma fica de ponta cabeça se o usuario vai pra esquerda
+		# boa sorte tuza :)
+		#if inputVec.x < 0:
+			#current_weapon.scale.y = -1
+		#else:
+			#current_weapon.scale.y = 1
 
-	if Input.is_action_just_pressed("Action_" + str(player_id)):
-		if current_weapon.has_method("attack"):
-			vibrate_controller(0.4, 0.7, 0.2)
-			current_weapon.attack()
+		if Input.is_action_just_pressed("Action_" + str(player_id)):
+			if current_weapon.has_method("attack"):
+				current_weapon.attack()
 
 func change_mask(new_mask_type: Enum.MaskType):
 	if current_weapon != null:
@@ -96,14 +101,13 @@ func change_mask(new_mask_type: Enum.MaskType):
 	if Scenes.mask_scenes.has(new_mask_type):
 		var new_weapon_scene = Scenes.mask_scenes[new_mask_type]
 		current_weapon = new_weapon_scene.instantiate()
-		
+		current_weapon.player_id = player_id
 		weapon_holder.call_deferred("add_child", current_weapon)
+		Utils.vibrate_controller(player_id, 0.4, 0.7, 0.2)
 
 func take_damage():
 	if is_invulnerable:
 		return
-	
-	vibrate_controller(1, 1, 0.50)
 		
 	if current_weapon != null:
 		is_invulnerable = true
@@ -122,9 +126,6 @@ func blink_effect():
 	tween.tween_property(self, "modulate:a", 0.3, 0.1)
 	tween.tween_property(self, "modulate:a", 1.0, 0.1)
 	tween.finished.connect(func(): modulate.a = 1.0)
-
-func vibrate_controller(weak: float, strong: float, duration: float):
-	Input.start_joy_vibration(player_id, weak, strong, duration)
 
 func _on_dash_timer_timeout() -> void:
 	speed = 300

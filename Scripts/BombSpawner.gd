@@ -5,6 +5,7 @@ extends Node2D
 
 const BOMB = preload("res://Scenes/Bomb.tscn")
 var can_fire: bool = true
+var player_id: int
 
 func attack():
 	if !can_fire:
