@@ -17,3 +17,7 @@ const PLAYER_1 = preload("res://SpriteFrames/Player_1.tres")
 const PLAYER_1_BOMBER = preload("res://SpriteFrames/Player_1_bomber.tres")
 const PLAYER_1_MELEE = preload("res://SpriteFrames/Player_1_melee.tres")
 const PLAYER_1_GUNNER = preload("res://SpriteFrames/Player_1_gunner.tres")
+
+const BOMBER = preload("res://Sprites/collectables/bomber.png")
+const MELEE = preload("res://Sprites/collectables/melee.png")
+const GUNNER = preload("res://Sprites/collectables/gunner.png")
