@@ -77,3 +77,10 @@ func change_mask(new_mask_type: Enum.MaskType):
 		current_weapon = new_weapon_scene.instantiate()
 		
 		weapon_holder.add_child(current_weapon)
+
+func take_damage():
+	if current_weapon != null:
+		current_weapon.queue_free()
+		current_weapon = null
+	elif current_weapon == null:
+		queue_free()
