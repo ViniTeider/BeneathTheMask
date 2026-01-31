@@ -19,4 +19,5 @@ func _on_body_entered(body: Node2D) -> void:
 			body.take_damage()
 
 func on_swing_end():
+	await get_tree().create_timer(0.5).timeout
 	can_swing = true
