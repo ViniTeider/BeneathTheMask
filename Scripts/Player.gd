@@ -139,14 +139,14 @@ func change_mask(new_mask_type: Enum.MaskType):
 func take_damage():
 	if is_invulnerable:
 		return
-		
+
 	Utils.impact_frame(0.5)
-		
+
 	if current_weapon != null:
 		is_invulnerable = true
 		current_weapon.queue_free()
 		current_weapon = null
-		
+
 		var timer = get_tree().create_timer(DAMAGE_COLDOWN)
 		timer.timeout.connect(func(): is_invulnerable = false)
 		blink_effect()

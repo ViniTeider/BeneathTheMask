@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://buifwi1gfal2s"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4emsy"]
+size = Vector2(10, 10)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c41w6"]
 size = Vector2(708, 20)
 
@@ -7,6 +10,9 @@ size = Vector2(708, 20)
 collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2043272505]
+scale = Vector2(70.65385, 1.8362176)
+texture = SubResource("PlaceholderTexture2D_4emsy")
+offset = Vector2(4.87, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1381832981]
 position = Vector2(344, 0)

@@ -1,13 +1,10 @@
 [gd_scene format=3 uid="uid://b4whdblkcfwaa"]
 
 [ext_resource type="Script" uid="uid://dvo4igairn7bc" path="res://Scripts/Sword.gd" id="1_suca6"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_024fo"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_suca6"]
+[ext_resource type="Texture2D" uid="uid://dd5t6silvgy8l" path="res://Sprites/weapons/sword.png" id="2_223a5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_223a5"]
-size = Vector2(6, 28)
+size = Vector2(6, 55)
 
 [sub_resource type="Animation" id="Animation_024fo"]
 length = 0.001
@@ -90,19 +87,14 @@ scale = Vector2(1.2, 1.2)
 script = ExtResource("1_suca6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1700939327]
-position = Vector2(-0.03007795, -22.136862)
-scale = Vector2(4.6666665, 28)
-texture = SubResource("PlaceholderTexture2D_024fo")
+position = Vector2(-1.5497208e-06, -35)
+rotation = -1.5707964
+scale = Vector2(2, 2)
+texture = ExtResource("2_223a5")
 offset = Vector2(0.0064450605, -0.03082639)
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=517316094]
-position = Vector2(2.0302832e-07, 0.7888609)
-scale = Vector2(0.40178576, 0.35714284)
-texture = SubResource("PlaceholderTexture2D_suca6")
-offset = Vector2(0.033332895, -0.40881065)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1679473113]
-position = Vector2(-9.536743e-07, -23)
+position = Vector2(0.9999984, -36)
 shape = SubResource("RectangleShape2D_223a5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=578427320]

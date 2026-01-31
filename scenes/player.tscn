@@ -22,6 +22,7 @@ scale = Vector2(1.4530239, 0.11408532)
 shape = SubResource("RectangleShape2D_kyqiw")
 
 [node name="WeaponHolder" type="Node2D" parent="." unique_id=1320936409]
+z_index = -5
 
 [node name="DashTimer" type="Timer" parent="." unique_id=1118039104]
 wait_time = 0.128

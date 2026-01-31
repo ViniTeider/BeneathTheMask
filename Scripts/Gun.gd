@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var marker_2d: Marker2D = $Marker2D
 @onready var shoot_timer: Timer = $ShootTimer
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 const BULLET = preload("res://scenes/Bullet.tscn")
 var can_fire: bool = true
