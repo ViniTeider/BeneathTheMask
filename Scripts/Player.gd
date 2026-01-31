@@ -4,7 +4,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const DEADZONE_X = 0.2 
 
-@onready var aimArrow: Node2D = $AimArrow
+@onready var gun: Node2D = $Gun
 @export var player_id: int = 0
 
 var direction: float = 0 
@@ -37,4 +37,7 @@ func _process(delta: float) -> void:
 	var inputVec = Input.get_vector("Left_" + str(player_id), "Right_" + str(player_id), "Up_" + str(player_id), "Down_" + str(player_id))
 	
 	if inputVec.length() > 0.1:
-		aimArrow.rotation = inputVec.angle()
+		gun.rotation = inputVec.angle()
+
+	if Input.is_action_just_pressed("Action_" + str(player_id)):
+		gun.shoot()
