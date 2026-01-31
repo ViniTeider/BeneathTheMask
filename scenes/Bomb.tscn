@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://pl688k4syab" path="res://Scripts/Bomb.gd" id="1_7dain"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t0fub"]
-bounce = 0.54
+bounce = 0.8
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t0fub"]
 
@@ -46,10 +46,10 @@ tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.93333334),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(18, 18), Vector2(36, 36)]
+"values": [Vector2(18, 18), Vector2(0.01, 0.01)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -58,10 +58,24 @@ tracks/1/path = NodePath("CollisionShape2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.01, 0.93333334),
+"times": PackedFloat32Array(0.01, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(18, 18), Vector2(36, 36)]
+"values": [Vector2(18, 18), Vector2(0.01, 0.01)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1xih2"]
@@ -71,9 +85,12 @@ _data = {
 }
 
 [node name="Bomb" type="RigidBody2D" unique_id=1369718883]
-collision_mask = 2
+collision_layer = 4
+collision_mask = 3
 mass = 0.816
 physics_material_override = SubResource("PhysicsMaterial_t0fub")
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_7dain")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=375954966]
@@ -92,5 +109,4 @@ one_shot = true
 autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="on_explodion"]

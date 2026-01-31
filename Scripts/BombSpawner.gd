@@ -14,13 +14,14 @@ func attack():
 	timer.start()
 
 	var direction = get_parent().get_parent().last_direction
-	var b = BOMB.instantiate()
+	var b: Bomb = BOMB.instantiate()
+	b.player_id = get_parent().get_parent().player_id
 	get_tree().get_root().add_child(b)
 	b.global_position = marker_2d.global_position
 	b.global_rotation = marker_2d.global_rotation
 	b.parent_direction = direction
 	b.linear_velocity.x = direction * 250
 	b.linear_velocity.y = -250
-
+	
 func on_timer_end():
 	can_fire = true
