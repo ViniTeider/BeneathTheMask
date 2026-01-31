@@ -34,7 +34,7 @@ one_shot = true
 
 [node name="DashParticles" type="CPUParticles2D" parent="." unique_id=1780580471]
 emitting = false
-lifetime = 0.24000000000000002
+lifetime = 0.24
 speed_scale = 3.79
 explosiveness = 0.35
 randomness = 0.35
@@ -43,6 +43,23 @@ emission_sphere_radius = 16.6
 gravity = Vector2(500, 0)
 scale_amount_min = 0.0
 scale_amount_max = 5.0
+
+[node name="WinParticles" type="CPUParticles2D" parent="." unique_id=1402857435]
+z_index = -5
+emitting = false
+amount = 35
+lifetime = 2.7299999999999995
+preprocess = 2.0
+speed_scale = 4.81
+emission_shape = 1
+emission_sphere_radius = 22.19
+gravity = Vector2(0, 0)
+angular_velocity_max = 131.43
+radial_accel_min = 40.1
+radial_accel_max = 40.35
+scale_amount_min = 0.0
+scale_amount_max = 5.0
+color = Color(1, 1, 0, 1)
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashColdownTimer" to="." method="_on_dash_coldown_timer_timeout"]

@@ -9,6 +9,7 @@ const DAMAGE_COLDOWN = 1.5
 @onready var weapon_holder: Node2D = $WeaponHolder
 @onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_particles: CPUParticles2D = $DashParticles
+@onready var win_particles: CPUParticles2D = $WinParticles
 
 var current_mask: Enum.MaskType
 var current_weapon: Node = null
@@ -41,6 +42,7 @@ func _ready() -> void:
 	change_mask(Enum.MaskType.Bomber)
 	sprite_2d.play("idle")
 	sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
+	Globals.players.append(self)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and (velocity.y < 2000):
@@ -151,6 +153,9 @@ func take_damage():
 		blink_effect()
 		sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
 	elif current_weapon == null:
+		var i = Globals.players.find(self)
+		Globals.players.pop_at(i)
+		SignalBus.player_win.emit()
 		queue_free()
 
 func blink_effect():
@@ -169,3 +174,6 @@ func _on_dash_timer_timeout() -> void:
 
 func _on_dash_coldown_timer_timeout() -> void:
 	can_dash = true
+	
+func on_win() -> void:
+	win_particles.emitting = true
