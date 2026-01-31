@@ -7,7 +7,7 @@ const DAMAGE_COLDOWN = 1.5
 
 @export var player_id: int = 0
 @onready var weapon_holder: Node2D = $WeaponHolder
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var current_mask: Enum.MaskType
 var current_weapon: Node = null
@@ -27,6 +27,7 @@ var mask_scenes = {
 
 func _ready() -> void:
 	change_mask(Enum.MaskType.Bomber)
+	sprite_2d.play("idle")
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and (velocity.y < 2000):
@@ -58,6 +59,7 @@ func _physics_process(delta: float) -> void:
 		if(!can_dash):
 			return
 		Utils.vibrate_controller(player_id, 0.6, 0.4, 0.15)
+		sprite_2d.play("dash")
 		$DashTimer.start()
 		is_invulnerable = true
 		speed = speed * 3
@@ -71,6 +73,21 @@ func _process(delta: float) -> void:
 		sprite_2d.flip_h = false
 	elif last_direction == -1:
 		sprite_2d.flip_h = true
+
+	if (can_dash and !is_invulnerable):
+		if velocity.x == 0 and velocity.y == 0:
+			sprite_2d.play("idle")
+
+		elif velocity.x != 0 and velocity.y == 0:
+			print(sprite_2d.animation)
+			sprite_2d.play("walking")
+			
+		elif velocity.y < 0:
+			print(sprite_2d.animation)
+			sprite_2d.play("jump")
+			
+		elif velocity.y > 0:
+			sprite_2d.play("falling")
 	
 	if current_weapon != null:
 		var inputVec = Input.get_vector("Left_" + str(player_id), "Right_" + str(player_id), "Up_" + str(player_id), "Down_" + str(player_id))

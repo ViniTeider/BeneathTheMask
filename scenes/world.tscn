@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cph6ivypogtuq" path="res://Scripts/mask_spawner.gd" id="5_p70al"]
 
 [node name="World" type="Node2D" unique_id=1970420695]
+position = Vector2(3, -1)
 
 [node name="Player" parent="." unique_id=133474484 instance=ExtResource("1_32lhk")]
 position = Vector2(792, 306)
@@ -23,11 +24,11 @@ position = Vector2(483, 398)
 scale = Vector2(0.097716175, 1.0993367)
 
 [node name="Floor3" parent="." unique_id=797330754 instance=ExtResource("2_7g83o")]
-position = Vector2(760, 402)
+position = Vector2(769, 406)
 scale = Vector2(0.097716175, 1.0993367)
 
 [node name="Floor4" parent="." unique_id=668814162 instance=ExtResource("2_7g83o")]
-position = Vector2(55, 116)
+position = Vector2(222, 181)
 
 [node name="Teleporter" parent="." unique_id=1961795099 instance=ExtResource("4_gjpho")]
 
@@ -44,24 +45,21 @@ position = Vector2(657, 439)
 position = Vector2(946, 447)
 
 [node name="Marker2D4" type="Marker2D" parent="MaskSpawner" unique_id=498960366]
-position = Vector2(123, 64)
+position = Vector2(267, 149)
 
 [node name="Floor5" parent="." unique_id=1003534481 instance=ExtResource("2_7g83o")]
-position = Vector2(889, 355)
+position = Vector2(1026, 371.99997)
 scale = Vector2(0.097716175, 1.0993367)
 
 [node name="Floor6" parent="." unique_id=1153840586 instance=ExtResource("2_7g83o")]
-position = Vector2(766, 279)
+position = Vector2(920, 286)
 scale = Vector2(0.097716175, 1.0993367)
 
 [node name="Floor7" parent="." unique_id=1273264720 instance=ExtResource("2_7g83o")]
-position = Vector2(900, 213.00002)
-scale = Vector2(0.097716175, 1.0993367)
-
-[node name="Floor8" parent="." unique_id=1222285477 instance=ExtResource("2_7g83o")]
-position = Vector2(768.00006, 165)
+position = Vector2(1018, 213.00002)
 scale = Vector2(0.097716175, 1.0993367)
 
 [node name="GlobalCamera" type="Camera2D" parent="." unique_id=1199191549]
-position = Vector2(643, 329)
+position = Vector2(657, 329)
+zoom = Vector2(1.425, 1.425)
 script = ExtResource("5_45d1s")

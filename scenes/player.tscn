@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bddxfxcv27cgj"]
 
 [ext_resource type="Script" uid="uid://fn6yeh61qs03" path="res://Scripts/Player.gd" id="1_3vyb7"]
-[ext_resource type="Texture2D" uid="uid://dtu60tvyx6nxl" path="res://Sprites/player_idle.png" id="2_kyqiw"]
+[ext_resource type="SpriteFrames" uid="uid://dw4mgj36rcdqp" path="res://SpriteFrames/Player_0.tres" id="2_kyqiw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
 size = Vector2(11.0115185, 192.83815)
@@ -10,9 +10,12 @@ size = Vector2(11.0115185, 192.83815)
 collision_mask = 14
 script = ExtResource("1_3vyb7")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=416489012]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=200240738]
 position = Vector2(-4.7683716e-07, 4.7683716e-07)
-texture = ExtResource("2_kyqiw")
+sprite_frames = ExtResource("2_kyqiw")
+animation = &"walking"
+frame = 6
+frame_progress = 0.76794404
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=433342562]
 position = Vector2(0.9999997, 1.9999998)
