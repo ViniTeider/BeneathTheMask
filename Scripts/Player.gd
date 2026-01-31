@@ -107,14 +107,9 @@ func _process(delta: float) -> void:
 		if inputVec.length() > 0.1:
 			weapon_holder.rotation = inputVec.angle()
 		
-		#BUG:
-		# Com o codigo: Arma fica de ponta cabeça quando para de andar, espada nao funciona por algum motivo
-		# Sem o codigo: Arma fica de ponta cabeça se o usuario vai pra esquerda
-		# boa sorte tuza :)
-		#if inputVec.x < 0:
-			#current_weapon.scale.y = -1
-		#else:
-			#current_weapon.scale.y = 1
+		if current_weapon is Gun:
+			current_weapon.scale.y = last_direction
+
 
 		if Input.is_action_just_pressed("Action_" + str(player_id)):
 			if current_weapon.has_method("attack"):
