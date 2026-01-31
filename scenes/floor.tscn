@@ -4,6 +4,7 @@
 size = Vector2(708, 20)
 
 [node name="Floor" type="StaticBody2D" unique_id=521644418]
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2043272505]
 

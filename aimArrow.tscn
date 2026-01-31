@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bp06c4sn5q5n7"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ufrfc"]
+size = Vector2(25, 25)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3rta4"]
+size = Vector2(10, 10)
+
+[node name="AimArrow" type="Node2D" unique_id=1695000676]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=352866948]
+position = Vector2(0, -1)
+scale = Vector2(1, 0.24)
+texture = SubResource("PlaceholderTexture2D_ufrfc")
+offset = Vector2(30, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=532890300]
+position = Vector2(13, 0)
+texture = SubResource("PlaceholderTexture2D_3rta4")
+offset = Vector2(30, 0)

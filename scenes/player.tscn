@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://bddxfxcv27cgj"]
 
 [ext_resource type="Script" uid="uid://fn6yeh61qs03" path="res://scenes/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://bp06c4sn5q5n7" path="res://aimArrow.tscn" id="2_g2els"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u8vuu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1433225565]
+collision_mask = 2
 script = ExtResource("1_3vyb7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=416489012]
@@ -16,3 +18,5 @@ texture = SubResource("PlaceholderTexture2D_u8vuu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=433342562]
 shape = SubResource("RectangleShape2D_3vyb7")
+
+[node name="AimArrow" parent="." unique_id=1695000676 instance=ExtResource("2_g2els")]
