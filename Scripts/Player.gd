@@ -22,7 +22,7 @@ var direction: float = 0
 var last_direction: int = 1
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
+	if not is_on_floor() and (velocity.y < 2000):
 		velocity += get_gravity() * delta
 
 	if Input.is_action_just_pressed("Jump_" + str(player_id)) and is_on_floor():
@@ -43,16 +43,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	
 	if Input.is_action_just_pressed("Dash_" + str(player_id)):
-		print(can_dash)
 		if(!can_dash):
 			return
+		vibrate_controller(0.6, 0.4, 0.15)
 		$DashTimer.start()
 		is_invulnerable = true
 		speed = speed * 3
 		velocity.x = direction * speed
 		
-		
-
 	move_and_slide()
 
 func _process(delta: float) -> void:
@@ -74,6 +72,7 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("Action_" + str(player_id)):
 		if current_weapon.has_method("attack"):
+			vibrate_controller(0.4, 0.7, 0.2)
 			current_weapon.attack()
 
 func change_mask(new_mask_type: Enum.MaskType):
@@ -92,6 +91,8 @@ func change_mask(new_mask_type: Enum.MaskType):
 func take_damage():
 	if is_invulnerable:
 		return
+	
+	vibrate_controller(1, 1, 0.50)
 		
 	if current_weapon != null:
 		is_invulnerable = true
@@ -111,15 +112,14 @@ func blink_effect():
 	tween.tween_property(self, "modulate:a", 1.0, 0.1)
 	tween.finished.connect(func(): modulate.a = 1.0)
 
+func vibrate_controller(weak: float, strong: float, duration: float):
+	Input.start_joy_vibration(player_id, weak, strong, duration)
 
 func _on_dash_timer_timeout() -> void:
 	speed = 300
 	is_invulnerable = false
 	can_dash = false
-	print("caiu no on dash timer timeout")
 	$DashColdownTimer.start()
-
 
 func _on_dash_coldown_timer_timeout() -> void:
 	can_dash = true
-	print(can_dash)
