@@ -4,8 +4,17 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const DEADZONE_X = 0.2 
 
-@onready var gun: Node2D = $Gun
 @export var player_id: int = 0
+@onready var weapon_holder: Node2D = $WeaponHolder
+
+var current_mask: Enum.MaskType
+var current_weapon: Node = null
+
+var mask_scenes = {
+	Enum.MaskType.Gunner: preload("res://scenes/gun.tscn"),
+	Enum.MaskType.Melee: preload("res://scenes/sword.tscn")
+}
+
 
 var direction: float = 0 
 var last_direction: int = 1
@@ -34,10 +43,37 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
+	if current_weapon == null: return
+	
 	var inputVec = Input.get_vector("Left_" + str(player_id), "Right_" + str(player_id), "Up_" + str(player_id), "Down_" + str(player_id))
 	
 	if inputVec.length() > 0.1:
-		gun.rotation = inputVec.angle()
+		weapon_holder.rotation = inputVec.angle()
+	
+	#BUG: c
+	# Com o codigo: Arma fica de ponta cabeça quando para de andar, espada nao funciona por algum motivo
+	# Sem o codigo: Arma fica de ponta cabeça se o usuario vai pra esquerda
+	# boa sorte tuza :)
+	#if inputVec.x < 0:
+		#current_weapon.scale.y = -1
+	#else:
+		#current_weapon.scale.y = 1
 
 	if Input.is_action_just_pressed("Action_" + str(player_id)):
-		gun.shoot()
+		if current_weapon.has_method("shoot"):
+			current_weapon.shoot()
+		elif current_weapon.has_method("attack"):
+			current_weapon.attack()
+
+func change_mask(new_mask_type: Enum.MaskType):
+	if current_weapon != null:
+		current_weapon.queue_free()
+		current_weapon = null
+	
+	current_mask = new_mask_type
+	
+	if mask_scenes.has(new_mask_type):
+		var new_weapon_scene = mask_scenes[new_mask_type]
+		current_weapon = new_weapon_scene.instantiate()
+		
+		weapon_holder.add_child(current_weapon)

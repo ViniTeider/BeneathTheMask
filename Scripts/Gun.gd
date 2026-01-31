@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func shoot():
 	var b = BULLET.instantiate()
-	owner.add_child(b)
+	get_tree().get_root().add_child(b)
 	b.global_position = marker_2d.global_position
 	b.global_rotation = marker_2d.global_rotation
 

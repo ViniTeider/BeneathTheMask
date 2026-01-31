@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ck6jbv6rtvhy4"]
 
-[ext_resource type="Script" uid="uid://1l88lg8pe1g" path="res://bullet.gd" id="1_vlxeq"]
+[ext_resource type="Script" uid="uid://1l88lg8pe1g" path="res://Scripts/Bullet.gd" id="1_vlxeq"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2ropf"]
 size = Vector2(5, 2)
