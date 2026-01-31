@@ -3,28 +3,28 @@
 [ext_resource type="Script" uid="uid://c8t0ojcfhecky" path="res://Scripts/teleporter.gd" id="1_jdjlm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jycew"]
-size = Vector2(1393, 29.75)
+size = Vector2(1013.875, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jdjlm"]
-size = Vector2(21.5, 836)
+size = Vector2(33, 591)
 
 [node name="Teleporter" type="Area2D" unique_id=1961795099]
 script = ExtResource("1_jdjlm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=95183047]
-position = Vector2(638, -65.875)
+position = Vector2(658.125, 176)
 shape = SubResource("RectangleShape2D_jycew")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=287082358]
-position = Vector2(641.5, 758)
+position = Vector2(708.9375, 736)
 shape = SubResource("RectangleShape2D_jycew")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=143866880]
-position = Vector2(1327.5, 347)
+position = Vector2(1113.5, 472.5)
 shape = SubResource("RectangleShape2D_jdjlm")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=1673583836]
-position = Vector2(-39.75, 356)
+position = Vector2(200, 472)
 shape = SubResource("RectangleShape2D_jdjlm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
