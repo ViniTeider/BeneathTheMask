@@ -8,6 +8,7 @@ const DAMAGE_COLDOWN = 1.5
 @export var player_id: int = 0
 @onready var weapon_holder: Node2D = $WeaponHolder
 @onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var dash_particles: CPUParticles2D = $DashParticles
 
 var current_mask: Enum.MaskType
 var current_weapon: Node = null
@@ -70,12 +71,18 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Dash_" + str(player_id)):
 		if(!can_dash):
 			return
+		if (velocity.x == 0):
+			return
 		Utils.vibrate_controller(player_id, 0.6, 0.4, 0.15)
 		sprite_2d.play("dash")
 		$DashTimer.start()
 		is_invulnerable = true
 		speed = speed * 3
 		velocity.x = direction * speed
+		
+		dash_particles.emitting = true
+		var gravity_strength = abs(dash_particles.gravity.x)
+		dash_particles.gravity.x = -sign(velocity.x) * gravity_strength
 		
 	move_and_slide()
 
@@ -160,6 +167,7 @@ func _on_dash_timer_timeout() -> void:
 	speed = 300
 	is_invulnerable = false
 	can_dash = false
+	dash_particles.emitting = false
 	$DashColdownTimer.start()
 
 func _on_dash_coldown_timer_timeout() -> void:

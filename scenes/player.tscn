@@ -32,5 +32,17 @@ one_shot = true
 wait_time = 0.503
 one_shot = true
 
+[node name="DashParticles" type="CPUParticles2D" parent="." unique_id=1780580471]
+emitting = false
+lifetime = 0.24000000000000002
+speed_scale = 3.79
+explosiveness = 0.35
+randomness = 0.35
+emission_shape = 1
+emission_sphere_radius = 16.6
+gravity = Vector2(500, 0)
+scale_amount_min = 0.0
+scale_amount_max = 5.0
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashColdownTimer" to="." method="_on_dash_coldown_timer_timeout"]
