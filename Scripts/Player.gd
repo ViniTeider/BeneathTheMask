@@ -25,8 +25,8 @@ var mask_scenes = {
 	Enum.MaskType.Melee: preload("res://scenes/sword.tscn")
 }
 
-#func _ready() -> void:
-	#change_mask(Enum.MaskType.Melee)
+func _ready() -> void:
+	change_mask(Enum.MaskType.Melee)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and (velocity.y < 2000):
@@ -108,6 +108,8 @@ func change_mask(new_mask_type: Enum.MaskType):
 func take_damage():
 	if is_invulnerable:
 		return
+		
+	Utils.impact_frame(0.5)
 		
 	if current_weapon != null:
 		is_invulnerable = true
