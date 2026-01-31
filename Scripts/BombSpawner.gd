@@ -1,3 +1,4 @@
+class_name BombSpawner
 extends Node2D
 
 @onready var timer: Timer = $Timer

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://8r5otyxdn2s0"]
 
-[ext_resource type="PackedScene" uid="uid://bddxfxcv27cgj" path="res://Scenes/Player.tscn" id="1_32lhk"]
-[ext_resource type="PackedScene" uid="uid://buifwi1gfal2s" path="res://Scenes/Floor.tscn" id="2_7g83o"]
-[ext_resource type="PackedScene" uid="uid://ckp8h4gcb5b0j" path="res://Scenes/Teleporter.tscn" id="4_gjpho"]
+[ext_resource type="PackedScene" uid="uid://bddxfxcv27cgj" path="res://scenes/player.tscn" id="1_32lhk"]
+[ext_resource type="PackedScene" uid="uid://buifwi1gfal2s" path="res://scenes/floor.tscn" id="2_7g83o"]
+[ext_resource type="PackedScene" uid="uid://ckp8h4gcb5b0j" path="res://scenes/Teleporter.tscn" id="4_gjpho"]
 [ext_resource type="Script" uid="uid://d3sghdpu2qfhb" path="res://Scripts/global_camera.gd" id="5_45d1s"]
 [ext_resource type="Script" uid="uid://cph6ivypogtuq" path="res://Scripts/mask_spawner.gd" id="5_p70al"]
 
