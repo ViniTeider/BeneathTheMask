@@ -98,11 +98,9 @@ func _process(delta: float) -> void:
 			sprite_2d.play("idle")
 
 		elif velocity.x != 0 and velocity.y == 0:
-			print(sprite_2d.animation)
 			sprite_2d.play("walking")
 			
 		elif velocity.y < 0:
-			print(sprite_2d.animation)
 			sprite_2d.play("jump")
 			
 		elif velocity.y > 0:
@@ -116,7 +114,6 @@ func _process(delta: float) -> void:
 		
 		if current_weapon is Gun:
 			current_weapon.scale.y = last_direction
-
 
 		if Input.is_action_just_pressed("Action_" + str(player_id)):
 			if current_weapon.has_method("attack"):
