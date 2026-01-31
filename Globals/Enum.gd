@@ -1,4 +1,4 @@
 extends Node
 
-enum MaskType {Melee, Gunner, Gravity, TBD}
+enum MaskType {Melee, Gunner, Bomber, TBD}
 enum PickupType {Mask, PowerUp}

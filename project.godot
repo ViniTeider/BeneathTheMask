@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Enum="*uid://cqqfskyt8vus1"
-GlobalData="*uid://btkruoj7v2s1s"
+Scenes="*uid://ci14lvo53fbps"
 
 [display]
 
@@ -110,6 +110,7 @@ Dash_1={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Floor"
 2d_physics/layer_3="Bullet"
+2d_physics/layer_4="Pickups"
 
 [physics]
 

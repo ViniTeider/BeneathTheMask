@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dk74rtsoao1vc"]
+
+[ext_resource type="Script" uid="uid://pl688k4syab" path="res://Scripts/Bomb.gd" id="1_7dain"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t0fub"]
+bounce = 0.72
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t0fub"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t0fub"]
+radius = 6.0
+
+[node name="Bomb" type="RigidBody2D" unique_id=1369718883]
+collision_mask = 7
+mass = 0.04
+physics_material_override = SubResource("PhysicsMaterial_t0fub")
+script = ExtResource("1_7dain")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=375954966]
+scale = Vector2(9.5, 9.5)
+texture = SubResource("PlaceholderTexture2D_t0fub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=593702550]
+shape = SubResource("CircleShape2D_t0fub")

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const JUMP_VELOCITY = -400.0
+const JUMP_UPSIDEDOWN = JUMP_VELOCITY*-1
 const DEADZONE_X = 0.2 
 const DAMAGE_COLDOWN = 1.5
 
@@ -10,23 +11,30 @@ const DAMAGE_COLDOWN = 1.5
 var current_mask: Enum.MaskType
 var current_weapon: Node = null
 var is_invulnerable: bool = false
+var was_in_air: bool = false
+
 var speed = 300.0
 var can_dash = true
+
+var direction: float = 0 
+var last_direction: int = 1
 
 var mask_scenes = {
 	Enum.MaskType.Gunner: preload("res://scenes/gun.tscn"),
 	Enum.MaskType.Melee: preload("res://scenes/sword.tscn")
 }
 
-var direction: float = 0 
-var last_direction: int = 1
-
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and (velocity.y < 2000):
 		velocity += get_gravity() * delta
+		was_in_air = true
 
 	if Input.is_action_just_pressed("Jump_" + str(player_id)) and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+	if is_on_floor() and was_in_air:
+		Input.start_joy_vibration(player_id, 0.5, 0.1, 0.1)
+		was_in_air = false
 
 	var raw_input_x = Input.get_axis("Left_" + str(player_id), "Right_" + str(player_id))
 	
@@ -82,11 +90,11 @@ func change_mask(new_mask_type: Enum.MaskType):
 	
 	current_mask = new_mask_type
 	
-	if mask_scenes.has(new_mask_type):
-		var new_weapon_scene = mask_scenes[new_mask_type]
+	if Scenes.mask_scenes.has(new_mask_type):
+		var new_weapon_scene = Scenes.mask_scenes[new_mask_type]
 		current_weapon = new_weapon_scene.instantiate()
 		
-		weapon_holder.add_child(current_weapon)
+		weapon_holder.call_deferred("add_child", current_weapon)
 
 func take_damage():
 	if is_invulnerable:
