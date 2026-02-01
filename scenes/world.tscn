@@ -20,8 +20,9 @@ script = ExtResource("1_p70al")
 
 [node name="Background" parent="." unique_id=1857493872 instance=ExtResource("1_4mrxx")]
 position = Vector2(645, 357)
-scale = Vector2(1.3895185, 1.3895184)
+scale = Vector2(1.5095148, 1.5095147)
 autoplay = "default"
+frame_progress = 0.067650825
 
 [node name="Limits" parent="." unique_id=936848198 instance=ExtResource("7_q2d71")]
 
