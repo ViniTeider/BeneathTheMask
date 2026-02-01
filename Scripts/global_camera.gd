@@ -41,10 +41,9 @@ func shake(intensity: float, duration: float = 0.0):
 func on_impact_frame():
 	shake(10, 0.5)
 
-func on_player_win():
-	var player = Globals.players.pop_front()
+func on_player_win(player):
 	const zoom_value = 4.5
 	reparent(player)
 	zoom = Vector2(zoom_value, zoom_value)
 	global_position = player.global_position
-	player.on_win()
+	#player.on_win()
