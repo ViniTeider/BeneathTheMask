@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://uci6knvorw6p"]
+
+[ext_resource type="PackedScene" uid="uid://b7lj7v6kh15fm" path="res://Scenes/player_selector.tscn" id="1_e5kvk"]
+
+[node name="SelectScreen" type="Control" unique_id=69273071]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerSelector" parent="." unique_id=445503797 instance=ExtResource("1_e5kvk")]
+layout_mode = 1
+offset_left = 206.0
+offset_top = 217.0
+offset_right = 206.0
+offset_bottom = 217.0

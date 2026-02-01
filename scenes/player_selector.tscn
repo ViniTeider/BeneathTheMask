@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b7lj7v6kh15fm"]
+
+[ext_resource type="Script" uid="uid://dt5esk2mxy73q" path="res://player_selector.gd" id="1_4svvn"]
+[ext_resource type="Script" uid="uid://bxq338ld53tg" path="res://Scenes/label.gd" id="2_v3spj"]
+
+[node name="PlayerSelector" type="Control" unique_id=445503797]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 276.0
+offset_top = 139.0
+offset_right = 276.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4svvn")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1194400729]
+position = Vector2(-24, 199)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=664084240]
+position = Vector2(203, 199)
+
+[node name="Marker2D3" type="Marker2D" parent="." unique_id=1755039277]
+position = Vector2(469, 199)
+
+[node name="Marker2D4" type="Marker2D" parent="." unique_id=387883637]
+position = Vector2(728, 199)
+
+[node name="StartupTimer" type="Timer" parent="." unique_id=565234012]
+wait_time = 5.0
+
+[node name="Label" type="Label" parent="." unique_id=1174794749]
+layout_mode = 0
+offset_left = 332.0
+offset_right = 372.0
+offset_bottom = 23.0
+script = ExtResource("2_v3spj")
+
+[connection signal="timeout" from="StartupTimer" to="." method="_on_startup_timer_timeout"]
