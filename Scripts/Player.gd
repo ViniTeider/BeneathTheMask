@@ -11,6 +11,11 @@ const DAMAGE_COLDOWN = 1.5
 @onready var dash_particles: CPUParticles2D = $DashParticles
 @onready var win_particles: CPUParticles2D = $WinParticles
 
+@onready var limite_chao: Marker2D = %LimiteChao
+@onready var limite_esquerda: Marker2D = %LimiteEsquerda
+@onready var limite_direita: Marker2D = %LimiteDireita
+@onready var limite_ceu: Marker2D = %LimiteCeu
+
 var current_mask: Enum.MaskType
 var current_weapon: Node = null
 var is_invulnerable: bool = false
@@ -42,7 +47,7 @@ func _ready() -> void:
 	change_mask(Enum.MaskType.Bomber)
 	sprite_2d.play("idle")
 	sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
-	#Globals.players.append(self)
+	Globals.players.append(self)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and (velocity.y < 2000):
@@ -89,6 +94,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
+	
+	if position.x < limite_esquerda.position.x:
+		position.x = limite_direita.position.x
+		
+	if position.x > limite_direita.position.x:
+		position.x = limite_esquerda.position.x
+		
+	if position.y > limite_chao.position.y:
+		position.y = limite_ceu.position.y
 	
 	if last_direction == 1:
 		sprite_2d.flip_h = false
@@ -153,8 +167,8 @@ func take_damage():
 		blink_effect()
 		sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
 	elif current_weapon == null:
-		#var i = Globals.players.find(self)
-		#Globals.players.pop_at(i)
+		var i = Globals.players.find(self)
+		Globals.players.pop_at(i)
 		SignalBus.player_win.emit()
 		queue_free()
 
