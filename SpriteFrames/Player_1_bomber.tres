@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://somm0e2hh8ye" path="res://Sprites/blue/bomber/bomber_blue_dash.png" id="1_lg0uh"]
 [ext_resource type="Texture2D" uid="uid://doig8gq6wblxt" path="res://Sprites/blue/bomber/bomber_blue_fall.png" id="2_tulde"]
 [ext_resource type="Texture2D" uid="uid://dmwxu32qqroo6" path="res://Sprites/blue/bomber/bomber_blue_fall_collision.png" id="3_k4swd"]
+[ext_resource type="Texture2D" uid="uid://c8f1o6avbxa38" path="res://Sprites/blue/bomber/bomber_blue_idle.png" id="4_lg0uh"]
 [ext_resource type="Texture2D" uid="uid://dmnfu7d0m6w2" path="res://Sprites/blue/bomber/bomber_blue_jump.png" id="5_1qnna"]
 [ext_resource type="Texture2D" uid="uid://dft5u3t0yrk3l" path="res://Sprites/blue/bomber/bomber_blue_walk.png" id="6_fkq2w"]
 
@@ -21,8 +22,6 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_cfuy8"]
 atlas = ExtResource("2_tulde")
 region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x1ivd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8yvsr"]
 atlas = ExtResource("5_1qnna")
@@ -109,7 +108,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_x1ivd")
+"texture": ExtResource("4_lg0uh")
 }],
 "loop": false,
 "name": &"idle",

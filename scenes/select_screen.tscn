@@ -1,5 +1,6 @@
-[gd_scene format=3 uid="uid://uci6knvorw6p"]
+[gd_scene format=3 uid="uid://dpj1ar004p5iy"]
 
+[ext_resource type="AudioStream" uid="uid://okr0v25hlxpf" path="res://Sounds/Goofy_Mellow_Menu.mp3" id="2_aauhc"]
 [ext_resource type="PackedScene" uid="uid://b7lj7v6kh15fm" path="res://Scenes/player_selector.tscn" id="1_e5kvk"]
 [ext_resource type="Texture2D" uid="uid://chpn40o3cldpd" path="res://Sprites/menu/title.png" id="2_0hawy"]
 [ext_resource type="Texture2D" uid="uid://4dee0tqs773h" path="res://Sprites/background_menu.png" id="2_tqkkm"]
@@ -66,6 +67,7 @@ texture = ExtResource("3_k5wox")
 
 [node name="PlayerSelector" parent="." unique_id=445503797 instance=ExtResource("1_e5kvk")]
 layout_mode = 1
+
 offset_left = 267.0
 offset_top = 300.0
 offset_right = 267.0
@@ -74,3 +76,7 @@ offset_bottom = 300.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1325610772]
 libraries/ = SubResource("AnimationLibrary_kr1nt")
 speed_scale = 0.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=397561112]
+stream = ExtResource("2_aauhc")
+autoplay = true

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c2j43nxo5mefd"]
+
+[ext_resource type="Texture2D" uid="uid://bw8wo60ob3t2" path="res://Sprites/miscellaneous/bush.png" id="1_2neif"]
+
+[node name="Bush" type="Sprite2D" unique_id=1703453471]
+modulate = Color(0.63521034, 0.7011406, 0.92032015, 1)
+texture = ExtResource("1_2neif")
