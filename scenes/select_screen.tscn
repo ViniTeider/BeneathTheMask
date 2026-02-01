@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://uci6knvorw6p"]
+[gd_scene format=3 uid="uid://dpj1ar004p5iy"]
 
-[ext_resource type="PackedScene" uid="uid://b7lj7v6kh15fm" path="res://Scenes/player_selector.tscn" id="1_e5kvk"]
+[ext_resource type="PackedScene" path="res://Scenes/player_selector.tscn" id="1_e5kvk"]
+[ext_resource type="AudioStream" uid="uid://okr0v25hlxpf" path="res://Sounds/Goofy_Mellow_Menu.mp3" id="2_aauhc"]
 
 [node name="SelectScreen" type="Control" unique_id=69273071]
 layout_mode = 3
@@ -16,3 +17,7 @@ offset_left = 206.0
 offset_top = 217.0
 offset_right = 206.0
 offset_bottom = 217.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=397561112]
+stream = ExtResource("2_aauhc")
+autoplay = true
