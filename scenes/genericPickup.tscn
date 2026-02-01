@@ -73,8 +73,8 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tgt54"]
 gradient = SubResource("Gradient_qwb5a")
-width = 40
-height = 40
+width = 45
+height = 45
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -95,6 +95,7 @@ libraries/ = SubResource("AnimationLibrary_y7nf4")
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1070483720]
 position = Vector2(9.536743e-07, -2.3841858e-07)
 color = Color(1, 0.68505514, 1, 1)
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_tgt54")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
