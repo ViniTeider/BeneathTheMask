@@ -14,8 +14,10 @@ func _ready() -> void:
 	timer.timeout.connect(spawn_mask)
 
 func get_random_spot() -> Marker2D:
-	var i = randi_range(0, len(spots)-1)
-	var spot = spots.pop_at(i)
+	#var i = randi_range(0, len(spots)-1)
+	#var spot = spots.pop_at(i)
+	spots.shuffle()
+	var spot = spots.pop_front()
 	return spot
 
 func get_random_mask() -> int:
@@ -25,7 +27,7 @@ func get_random_mask() -> int:
 	return mask
 
 func spawn_mask() -> void:
-	if spots == []:
+	if len(spots) == 0:
 		return
 	var spot = get_random_spot()
 	var mask = get_random_mask()

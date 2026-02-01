@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal player_died(player)
+
 const JUMP_VELOCITY = -400.0
 const JUMP_UPSIDEDOWN = JUMP_VELOCITY*-1
 const DEADZONE_X = 0.2 
@@ -172,10 +174,11 @@ func take_damage():
 		blink_effect()
 		sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
 	elif current_weapon == null:
-		var i = Globals.players.find(self)
-		Globals.players.pop_at(i)
-		SignalBus.player_win.emit()
-		queue_free()
+		#var i = Globals.players.find(self)
+		#Globals.players.pop_at(i)
+		#@SignalBus.player_win.emit()
+		#queue_free()
+		player_died.emit(self)
 
 func blink_effect():
 	var tween = create_tween()
