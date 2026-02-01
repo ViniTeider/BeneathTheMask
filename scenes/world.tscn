@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://qo1wf3px5pl0"]
 
 [ext_resource type="PackedScene" uid="uid://dre8tx7lexuxc" path="res://scenes/Background.tscn" id="1_4mrxx"]
-[ext_resource type="PackedScene" uid="uid://cm1416vvwqv6k" path="res://Scenes/Player.tscn" id="1_32lhk"]
+[ext_resource type="PackedScene" uid="uid://cm1416vvwqv6k" path="res://scenes/player.tscn" id="1_32lhk"]
 [ext_resource type="PackedScene" uid="uid://ckp8h4gcb5b0j" path="res://scenes/Teleporter.tscn" id="4_gjpho"]
 [ext_resource type="Script" uid="uid://d3sghdpu2qfhb" path="res://Scripts/global_camera.gd" id="5_45d1s"]
 [ext_resource type="Script" uid="uid://cph6ivypogtuq" path="res://Scripts/mask_spawner.gd" id="5_p70al"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://drgcfej8nceb1" path="res://scenes/Sign.tscn" id="7_i7141"]
 [ext_resource type="PackedScene" uid="uid://lbq2te1vjt3g" path="res://scenes/DownSign.tscn" id="9_7r4gi"]
 [ext_resource type="AudioStream" uid="uid://okr0v25hlxpf" path="res://Sounds/Goofy_Mellow_Menu.mp3" id="10_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://bb7xp80al3td4" path="res://scenes/Rock.tscn" id="11_e3hyu"]
 
 [node name="World" type="Node2D" unique_id=1970420695]
 position = Vector2(3, -1)
@@ -75,3 +76,13 @@ position = Vector2(549, 515)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1092092162]
 stream = ExtResource("10_w7kh3")
 autoplay = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=89500074]
+energy = 0.37
+blend_mode = 1
+
+[node name="Rock2" parent="." unique_id=1176588543 instance=ExtResource("11_e3hyu")]
+position = Vector2(785, 212)
+
+[node name="Rock" parent="." unique_id=700812097 instance=ExtResource("11_e3hyu")]
+position = Vector2(282, 517)
