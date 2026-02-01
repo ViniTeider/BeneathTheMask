@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 const JUMP_VELOCITY = -400.0
@@ -14,6 +15,13 @@ const DAMAGE_COLDOWN = 1.5
 
 const GOOFY_MELLOW_ENDING = preload("res://Sounds/Goofy_Mellow_Ending.mp3")
 
+@onready var win_timer: Timer = $WinTimer
+@onready var game_restart_text: Label = $GameRestartText
+
+var limite_esquerda: Marker2D
+var limite_chao: Marker2D
+var limite_direita: Marker2D
+var limite_ceu: Marker2D
 
 var current_mask: Enum.MaskType
 var current_weapon: Node = null
@@ -31,22 +39,20 @@ var mask_scenes = {
 	Enum.MaskType.Melee: preload("res://scenes/sword.tscn")
 }
 
-var sprite_frames = {
-	"Player_0": Scenes.PLAYER_0,
-	"Player_0_Bomber": Scenes.PLAYER_0_BOMBER,
-	"Player_0_Melee": Scenes.PLAYER_0_MELEE,
-	"Player_0_Gunner": Scenes.PLAYER_0_GUNNER,
-	"Player_1": Scenes.PLAYER_1,
-	"Player_1_Bomber": Scenes.PLAYER_1_BOMBER,
-	"Player_1_Melee": Scenes.PLAYER_1_MELEE,
-	"Player_1_Gunner": Scenes.PLAYER_1_GUNNER,
-}
+var sprite_frames = Globals.sprite_frames
 
 func _ready() -> void:
 	change_mask(Enum.MaskType.Bomber)
 	sprite_2d.play("idle")
 	sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
-	#Globals.players.append(self)
+	Globals.players.append(self)
+	
+	var limits = get_parent().limits
+	limite_esquerda = limits.get_node("LimiteEsquerda")
+	limite_direita = limits.get_node("LimiteDireita")
+	limite_chao = limits.get_node("LimiteChao")
+	limite_ceu = limits.get_node("LimiteCeu")
+	
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and (velocity.y < 2000):
@@ -93,6 +99,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
+	
+	if position.x < limite_esquerda.position.x:
+		position.x = limite_direita.position.x
+		
+	if position.x > limite_direita.position.x:
+		position.x = limite_esquerda.position.x
+		
+	if position.y > limite_chao.position.y:
+		position.y = limite_ceu.position.y
 	
 	if last_direction == 1:
 		sprite_2d.flip_h = false
@@ -157,8 +172,8 @@ func take_damage():
 		blink_effect()
 		sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
 	elif current_weapon == null:
-		#var i = Globals.players.find(self)
-		#Globals.players.pop_at(i)
+		var i = Globals.players.find(self)
+		Globals.players.pop_at(i)
 		SignalBus.player_win.emit()
 		queue_free()
 
@@ -183,3 +198,5 @@ func on_win() -> void:
 	audio_stream_player.stream = GOOFY_MELLOW_ENDING
 	audio_stream_player.play()
 	win_particles.emitting = true
+	win_timer.start()
+	

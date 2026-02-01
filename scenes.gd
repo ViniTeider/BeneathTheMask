@@ -8,6 +8,8 @@ var mask_scenes = {
 
 var generic_pickup_scene = preload("res://Scenes/GenericPickup.tscn")
 
+var select_screen_scene = preload("res://Scenes/select_screen.tscn")
+
 const PLAYER_0 = preload("res://SpriteFrames/Player_0.tres")
 const PLAYER_0_BOMBER = preload("res://SpriteFrames/Player_0_bomber.tres")
 const PLAYER_0_MELEE = preload("res://SpriteFrames/Player_0_melee.tres")

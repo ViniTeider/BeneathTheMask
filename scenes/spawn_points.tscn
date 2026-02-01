@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dbn3wx3f6e610"]
+
+[node name="SpawnPoints" type="Node" unique_id=766665118]
+
+[node name="PlayerSpawn1" type="Marker2D" parent="." unique_id=887484990]
+position = Vector2(416, 516)
+
+[node name="PlayerSpawn2" type="Marker2D" parent="." unique_id=1099903587]
+position = Vector2(851, 516)
+
+[node name="PlayerSpawn3" type="Marker2D" parent="." unique_id=536309550]
+position = Vector2(519, 210)
+
+[node name="PlayerSpawn4" type="Marker2D" parent="." unique_id=565146298]
+position = Vector2(789, 207)

@@ -1,38 +1,19 @@
-[gd_scene format=4 uid="uid://ddrxcqr05n4cg"]
+[gd_scene format=4 uid="uid://qo1wf3px5pl0"]
 
-[ext_resource type="PackedScene" uid="uid://dre8tx7lexuxc" path="res://scenes/Background.tscn" id="1_4mrxx"]
-[ext_resource type="PackedScene" uid="uid://cm1416vvwqv6k" path="res://scenes/player.tscn" id="1_32lhk"]
-[ext_resource type="PackedScene" uid="uid://ckp8h4gcb5b0j" path="res://scenes/Teleporter.tscn" id="4_gjpho"]
-[ext_resource type="Script" uid="uid://d3sghdpu2qfhb" path="res://Scripts/global_camera.gd" id="5_45d1s"]
-[ext_resource type="Script" uid="uid://cph6ivypogtuq" path="res://Scripts/mask_spawner.gd" id="5_p70al"]
-[ext_resource type="PackedScene" uid="uid://dtp8pau0iqndc" path="res://scenes/MainTileLayer.tscn" id="6_45d1s"]
-[ext_resource type="PackedScene" uid="uid://c5lp4414fcjoc" path="res://scenes/Lamp.tscn" id="6_qfnet"]
-[ext_resource type="PackedScene" uid="uid://drgcfej8nceb1" path="res://scenes/Sign.tscn" id="7_i7141"]
-[ext_resource type="PackedScene" uid="uid://lbq2te1vjt3g" path="res://scenes/DownSign.tscn" id="9_7r4gi"]
-[ext_resource type="AudioStream" uid="uid://okr0v25hlxpf" path="res://Sounds/Goofy_Mellow_Menu.mp3" id="10_w7kh3"]
-[ext_resource type="PackedScene" uid="uid://bb7xp80al3td4" path="res://scenes/Rock.tscn" id="11_e3hyu"]
-[ext_resource type="PackedScene" uid="uid://vy1s8nq6emkk" path="res://scenes/Stalagmite.tscn" id="12_q5onr"]
-[ext_resource type="Script" uid="uid://34oix7kor7r" path="res://Scenes/world.gd" id="1_p70al"]
+[ext_resource type="PackedScene" uid="uid://bso6abr6jkl7j" path="res://Scenes/Player.tscn" id="1_32lhk"]
 [ext_resource type="Script" uid="uid://d3sghdpu2qfhb" path="res://Scripts/global_camera.gd" id="5_45d1s"]
 [ext_resource type="Script" uid="uid://cph6ivypogtuq" path="res://Scripts/mask_spawner.gd" id="5_p70al"]
 [ext_resource type="PackedScene" uid="uid://dtp8pau0iqndc" path="res://Scenes/MainTileLayer.tscn" id="6_45d1s"]
-[ext_resource type="PackedScene" uid="uid://dbn3wx3f6e610" path="res://Scenes/spawn_points.tscn" id="6_y7y61"]
-[ext_resource type="PackedScene" uid="uid://d5wg1bud3cha" path="res://Scenes/limits.tscn" id="7_q2d71"]
 
 [node name="World" type="Node2D" unique_id=1970420695]
-script = ExtResource("1_p70al")
-
-[node name="Background" parent="." unique_id=1857493872 instance=ExtResource("1_4mrxx")]
-position = Vector2(645, 357)
-scale = Vector2(1.3895185, 1.3895184)
-autoplay = "default"
+position = Vector2(3, -1)
 
 [node name="Player" parent="." unique_id=133474484 instance=ExtResource("1_32lhk")]
 position = Vector2(826, 514)
 player_id = 1
-[node name="Limits" parent="." unique_id=936848198 instance=ExtResource("7_q2d71")]
 
-[node name="SpawnPoints" parent="." unique_id=766665118 instance=ExtResource("6_y7y61")]
+[node name="Player2" parent="." unique_id=1433225565 instance=ExtResource("1_32lhk")]
+position = Vector2(376, 514)
 
 [node name="MaskSpawner" type="Node" parent="." unique_id=1716666971]
 script = ExtResource("5_p70al")
@@ -58,41 +39,14 @@ position = Vector2(657, 354)
 zoom = Vector2(1.6, 1.6)
 script = ExtResource("5_45d1s")
 
-[node name="Lamp" parent="." unique_id=540825983 instance=ExtResource("6_qfnet")]
-position = Vector2(645, 349.00003)
+[node name="LimiteChao" type="Marker2D" parent="." unique_id=1436300416]
+unique_name_in_owner = true
+position = Vector2(643, 590)
 
-[node name="Lamp2" parent="." unique_id=2025832550 instance=ExtResource("6_qfnet")]
-position = Vector2(966.00006, 397.00003)
+[node name="LimiteEsquerda" type="Marker2D" parent="." unique_id=1545710265]
+unique_name_in_owner = true
+position = Vector2(253, 395)
 
-[node name="Sign" parent="." unique_id=2084154052 instance=ExtResource("7_i7141")]
-position = Vector2(902, 515)
-
-[node name="Sign2" parent="." unique_id=1752336041 instance=ExtResource("7_i7141")]
-position = Vector2(285, 307)
-flip_h = true
-
-[node name="Lamp3" parent="." unique_id=1008310852 instance=ExtResource("6_qfnet")]
-position = Vector2(568, 221.00002)
-
-[node name="DownSign" parent="." unique_id=347164918 instance=ExtResource("9_7r4gi")]
-position = Vector2(549, 515)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1092092162]
-stream = ExtResource("10_w7kh3")
-autoplay = true
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=89500074]
-energy = 0.37
-blend_mode = 1
-
-[node name="Rock2" parent="." unique_id=1176588543 instance=ExtResource("11_e3hyu")]
-position = Vector2(785, 212)
-
-[node name="Rock" parent="." unique_id=700812097 instance=ExtResource("11_e3hyu")]
-position = Vector2(282, 517)
-
-[node name="Stalagmite2" parent="." unique_id=1421476418 instance=ExtResource("12_q5onr")]
-position = Vector2(520, 291)
-scale = Vector2(1.3895185, 1.3895184)
-[editable path="Limits"]
-[editable path="SpawnPoints"]
+[node name="LimiteDireita" type="Marker2D" parent="." unique_id=458012904]
+unique_name_in_owner = true
+position = Vector2(1065, 395)
