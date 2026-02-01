@@ -1,23 +1,18 @@
-[gd_scene format=4 uid="uid://ddrxcqr05n4cg"]
+[gd_scene format=4 uid="uid://8308hwcltt43"]
 
-[ext_resource type="PackedScene" uid="uid://dre8tx7lexuxc" path="res://scenes/Background.tscn" id="1_4mrxx"]
-[ext_resource type="PackedScene" uid="uid://cm1416vvwqv6k" path="res://scenes/player.tscn" id="1_32lhk"]
-[ext_resource type="PackedScene" uid="uid://ckp8h4gcb5b0j" path="res://scenes/Teleporter.tscn" id="4_gjpho"]
-[ext_resource type="Script" uid="uid://d3sghdpu2qfhb" path="res://Scripts/global_camera.gd" id="5_45d1s"]
-[ext_resource type="Script" uid="uid://cph6ivypogtuq" path="res://Scripts/mask_spawner.gd" id="5_p70al"]
-[ext_resource type="PackedScene" uid="uid://dtp8pau0iqndc" path="res://scenes/MainTileLayer.tscn" id="6_45d1s"]
-[ext_resource type="PackedScene" uid="uid://c5lp4414fcjoc" path="res://scenes/Lamp.tscn" id="6_qfnet"]
-[ext_resource type="PackedScene" uid="uid://drgcfej8nceb1" path="res://scenes/Sign.tscn" id="7_i7141"]
-[ext_resource type="PackedScene" uid="uid://lbq2te1vjt3g" path="res://scenes/DownSign.tscn" id="9_7r4gi"]
-[ext_resource type="AudioStream" uid="uid://okr0v25hlxpf" path="res://Sounds/Goofy_Mellow_Menu.mp3" id="10_w7kh3"]
-[ext_resource type="PackedScene" uid="uid://bb7xp80al3td4" path="res://scenes/Rock.tscn" id="11_e3hyu"]
-[ext_resource type="PackedScene" uid="uid://vy1s8nq6emkk" path="res://scenes/Stalagmite.tscn" id="12_q5onr"]
+[ext_resource type="PackedScene" path="res://scenes/Background.tscn" id="1_4mrxx"]
 [ext_resource type="Script" uid="uid://34oix7kor7r" path="res://Scenes/world.gd" id="1_p70al"]
 [ext_resource type="Script" uid="uid://d3sghdpu2qfhb" path="res://Scripts/global_camera.gd" id="5_45d1s"]
 [ext_resource type="Script" uid="uid://cph6ivypogtuq" path="res://Scripts/mask_spawner.gd" id="5_p70al"]
 [ext_resource type="PackedScene" uid="uid://dtp8pau0iqndc" path="res://Scenes/MainTileLayer.tscn" id="6_45d1s"]
+[ext_resource type="PackedScene" path="res://scenes/Lamp.tscn" id="6_qfnet"]
 [ext_resource type="PackedScene" uid="uid://dbn3wx3f6e610" path="res://Scenes/spawn_points.tscn" id="6_y7y61"]
+[ext_resource type="PackedScene" path="res://scenes/Sign.tscn" id="7_i7141"]
 [ext_resource type="PackedScene" uid="uid://d5wg1bud3cha" path="res://Scenes/limits.tscn" id="7_q2d71"]
+[ext_resource type="PackedScene" path="res://scenes/DownSign.tscn" id="9_7r4gi"]
+[ext_resource type="AudioStream" uid="uid://okr0v25hlxpf" path="res://Sounds/Goofy_Mellow_Menu.mp3" id="10_w7kh3"]
+[ext_resource type="PackedScene" path="res://scenes/Rock.tscn" id="11_e3hyu"]
+[ext_resource type="PackedScene" path="res://scenes/Stalagmite.tscn" id="12_q5onr"]
 
 [node name="World" type="Node2D" unique_id=1970420695]
 script = ExtResource("1_p70al")
@@ -27,9 +22,6 @@ position = Vector2(645, 357)
 scale = Vector2(1.3895185, 1.3895184)
 autoplay = "default"
 
-[node name="Player" parent="." unique_id=133474484 instance=ExtResource("1_32lhk")]
-position = Vector2(826, 514)
-player_id = 1
 [node name="Limits" parent="." unique_id=936848198 instance=ExtResource("7_q2d71")]
 
 [node name="SpawnPoints" parent="." unique_id=766665118 instance=ExtResource("6_y7y61")]
@@ -94,5 +86,6 @@ position = Vector2(282, 517)
 [node name="Stalagmite2" parent="." unique_id=1421476418 instance=ExtResource("12_q5onr")]
 position = Vector2(520, 291)
 scale = Vector2(1.3895185, 1.3895184)
+
 [editable path="Limits"]
 [editable path="SpawnPoints"]
