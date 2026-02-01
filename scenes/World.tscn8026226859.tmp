@@ -53,4 +53,4 @@ position = Vector2(1065, 395)
 
 [node name="LimiteCeu" type="Marker2D" parent="." unique_id=1092590249]
 unique_name_in_owner = true
-position = Vector2(650, 96)
+position = Vector2(1065, 395)

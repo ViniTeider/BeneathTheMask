@@ -3,10 +3,19 @@ extends Camera2D
 var shake_amount = 0.0
 var default_offset = offset
 
+@onready var limite_chao: Marker2D = %LimiteChao
+@onready var limite_esquerda: Marker2D = %LimiteEsquerda
+@onready var limite_direita: Marker2D = %LimiteDireita
+@onready var limite_ceu: Marker2D = %LimiteCeu
+
 func _ready():
 	set_process(true)
 	SignalBus.impact_frame_triggered.connect(on_impact_frame)
 	SignalBus.player_win.connect(on_player_win)
+	limit_left = limite_esquerda.position.x
+	limit_right = limite_direita.position.x
+	limit_top = limite_ceu.position.y
+	limit_bottom = limite_chao.position.y
 
 func _process(delta):
 	if shake_amount > 0:
