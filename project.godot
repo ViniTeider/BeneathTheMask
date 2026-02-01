@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BeneathTheMask"
-run/main_scene="uid://f2pki1f7e3si"
+run/main_scene="uid://cddgej1angunk"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

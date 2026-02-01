@@ -42,7 +42,7 @@ func _ready() -> void:
 	change_mask(Enum.MaskType.Bomber)
 	sprite_2d.play("idle")
 	sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
-	Globals.players.append(self)
+	#Globals.players.append(self)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and (velocity.y < 2000):
@@ -153,8 +153,8 @@ func take_damage():
 		blink_effect()
 		sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
 	elif current_weapon == null:
-		var i = Globals.players.find(self)
-		Globals.players.pop_at(i)
+		#var i = Globals.players.find(self)
+		#Globals.players.pop_at(i)
 		SignalBus.player_win.emit()
 		queue_free()
 

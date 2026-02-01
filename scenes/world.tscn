@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://f2pki1f7e3si"]
+[gd_scene format=4 uid="uid://qo1wf3px5pl0"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Player.tscn" id="1_32lhk"]
 [ext_resource type="PackedScene" uid="uid://ckp8h4gcb5b0j" path="res://Scenes/Teleporter.tscn" id="4_gjpho"]
