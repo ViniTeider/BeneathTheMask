@@ -42,7 +42,7 @@ var mask_scenes = {
 var sprite_frames = Globals.sprite_frames
 
 func _ready() -> void:
-	change_mask(Enum.MaskType.Bomber)
+	#change_mask(Enum.MaskType.Bomber)
 	sprite_2d.play("idle")
 	sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
 	Globals.players.append(self)
