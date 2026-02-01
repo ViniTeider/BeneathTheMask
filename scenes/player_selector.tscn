@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dt5esk2mxy73q" path="res://player_selector.gd" id="1_4svvn"]
 [ext_resource type="Script" uid="uid://bxq338ld53tg" path="res://Scenes/label.gd" id="2_v3spj"]
+[ext_resource type="Texture2D" uid="uid://ccgv73hvyvn8v" path="res://Sprites/menu/start_text.png" id="3_517nu"]
+[ext_resource type="Texture2D" uid="uid://b6r5smqwoorid" path="res://Sprites/menu/player_title2.png" id="3_nwvr2"]
+[ext_resource type="Texture2D" uid="uid://c4qxilhd1vqvb" path="res://Sprites/menu/player_title1.png" id="3_oq6ba"]
+[ext_resource type="Texture2D" uid="uid://4wjq8kicrv65" path="res://Sprites/menu/player_title3.png" id="4_517nu"]
+[ext_resource type="Texture2D" uid="uid://hsgrdsshmj41" path="res://Sprites/menu/player_title4.png" id="5_74djx"]
 
 [node name="PlayerSelector" type="Control" unique_id=445503797]
 layout_mode = 3
@@ -19,14 +24,42 @@ script = ExtResource("1_4svvn")
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1194400729]
 position = Vector2(-24, 199)
 
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D" unique_id=2029409473]
+texture = ExtResource("3_oq6ba")
+
+[node name="SelectStatus" type="Sprite2D" parent="Marker2D" unique_id=1188818676]
+position = Vector2(0, 41)
+texture = ExtResource("3_517nu")
+
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=664084240]
 position = Vector2(203, 199)
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D2" unique_id=410921633]
+texture = ExtResource("3_nwvr2")
+
+[node name="SelectStatus" type="Sprite2D" parent="Marker2D2" unique_id=2073957132]
+position = Vector2(0, 41)
+texture = ExtResource("3_517nu")
 
 [node name="Marker2D3" type="Marker2D" parent="." unique_id=1755039277]
 position = Vector2(469, 199)
 
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D3" unique_id=919484962]
+texture = ExtResource("4_517nu")
+
+[node name="SelectStatus" type="Sprite2D" parent="Marker2D3" unique_id=1767539531]
+position = Vector2(0, 41)
+texture = ExtResource("3_517nu")
+
 [node name="Marker2D4" type="Marker2D" parent="." unique_id=387883637]
 position = Vector2(728, 199)
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D4" unique_id=863318399]
+texture = ExtResource("5_74djx")
+
+[node name="SelectStatus" type="Sprite2D" parent="Marker2D4" unique_id=1750899564]
+position = Vector2(0, 41)
+texture = ExtResource("3_517nu")
 
 [node name="StartupTimer" type="Timer" parent="." unique_id=565234012]
 wait_time = 5.0

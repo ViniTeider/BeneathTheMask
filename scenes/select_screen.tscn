@@ -1,6 +1,46 @@
 [gd_scene format=3 uid="uid://uci6knvorw6p"]
 
 [ext_resource type="PackedScene" uid="uid://b7lj7v6kh15fm" path="res://Scenes/player_selector.tscn" id="1_e5kvk"]
+[ext_resource type="Texture2D" uid="uid://chpn40o3cldpd" path="res://Sprites/menu/title.png" id="2_0hawy"]
+[ext_resource type="Texture2D" uid="uid://4dee0tqs773h" path="res://Sprites/background_menu.png" id="2_tqkkm"]
+[ext_resource type="Texture2D" uid="uid://bbe33jnyiv5pg" path="res://Sprites/menu/press_start.png" id="3_k5wox"]
+
+[sub_resource type="Animation" id="Animation_0hawy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(617, 217)]
+}
+
+[sub_resource type="Animation" id="Animation_k5wox"]
+resource_name = "menu"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.5, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(617, 220), Vector2(617, 225), Vector2(617, 220), Vector2(617, 215)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kr1nt"]
+_data = {
+&"RESET": SubResource("Animation_0hawy"),
+&"menu": SubResource("Animation_k5wox")
+}
 
 [node name="SelectScreen" type="Control" unique_id=69273071]
 layout_mode = 3
@@ -10,9 +50,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Background" type="Sprite2D" parent="." unique_id=1371514584]
+position = Vector2(637.99994, 359)
+scale = Vector2(2.03187, 2.03187)
+texture = ExtResource("2_tqkkm")
+
+[node name="Title" type="Sprite2D" parent="." unique_id=1878416606]
+position = Vector2(617, 217)
+scale = Vector2(1.3863636, 1.3863636)
+texture = ExtResource("2_0hawy")
+
+[node name="PressStart" type="Sprite2D" parent="." unique_id=1396888978]
+position = Vector2(612, 384)
+texture = ExtResource("3_k5wox")
+
 [node name="PlayerSelector" parent="." unique_id=445503797 instance=ExtResource("1_e5kvk")]
 layout_mode = 1
-offset_left = 206.0
-offset_top = 217.0
-offset_right = 206.0
-offset_bottom = 217.0
+offset_left = 267.0
+offset_top = 300.0
+offset_right = 267.0
+offset_bottom = 300.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1325610772]
+libraries/ = SubResource("AnimationLibrary_kr1nt")
+speed_scale = 0.5
