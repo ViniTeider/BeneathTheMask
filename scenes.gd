@@ -20,6 +20,17 @@ const PLAYER_1_BOMBER = preload("res://SpriteFrames/Player_1_bomber.tres")
 const PLAYER_1_MELEE = preload("res://SpriteFrames/Player_1_melee.tres")
 const PLAYER_1_GUNNER = preload("res://SpriteFrames/Player_1_gunner.tres")
 
+const PLAYER_2 = preload("res://SpriteFrames/Player_2.tres")
+const PLAYER_2_BOMBER = preload("res://SpriteFrames/Player_2_bomber.tres")
+const PLAYER_2_GUNNER = preload("res://SpriteFrames/Player_2_gunner.tres")
+const PLAYER_2_MELEE = preload("res://SpriteFrames/Player_2_melee.tres")
+
+const PLAYER_3 = preload("res://SpriteFrames/Player_3.tres")
+const PLAYER_3_BOMBER = preload("res://SpriteFrames/Player_3_bomber.tres")
+const PLAYER_3_GUNNER = preload("res://SpriteFrames/Player_3_gunner.tres")
+const PLAYER_3_MELEE = preload("res://SpriteFrames/Player_3_melee.tres")
+
+
 const BOMBER = preload("res://Sprites/collectables/bomber.png")
 const MELEE = preload("res://Sprites/collectables/melee.png")
 const GUNNER = preload("res://Sprites/collectables/gunner.png")
