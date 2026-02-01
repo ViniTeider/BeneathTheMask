@@ -1,13 +1,23 @@
 [gd_scene format=4 uid="uid://qo1wf3px5pl0"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Player.tscn" id="1_32lhk"]
-[ext_resource type="PackedScene" uid="uid://ckp8h4gcb5b0j" path="res://Scenes/Teleporter.tscn" id="4_gjpho"]
+[ext_resource type="PackedScene" uid="uid://dre8tx7lexuxc" path="res://scenes/Background.tscn" id="1_4mrxx"]
+[ext_resource type="PackedScene" uid="uid://cm1416vvwqv6k" path="res://Scenes/Player.tscn" id="1_32lhk"]
+[ext_resource type="PackedScene" uid="uid://ckp8h4gcb5b0j" path="res://scenes/Teleporter.tscn" id="4_gjpho"]
 [ext_resource type="Script" uid="uid://d3sghdpu2qfhb" path="res://Scripts/global_camera.gd" id="5_45d1s"]
 [ext_resource type="Script" uid="uid://cph6ivypogtuq" path="res://Scripts/mask_spawner.gd" id="5_p70al"]
-[ext_resource type="PackedScene" uid="uid://dtp8pau0iqndc" path="res://Scenes/MainTileLayer.tscn" id="6_45d1s"]
+[ext_resource type="PackedScene" uid="uid://dtp8pau0iqndc" path="res://scenes/MainTileLayer.tscn" id="6_45d1s"]
+[ext_resource type="PackedScene" uid="uid://c5lp4414fcjoc" path="res://scenes/Lamp.tscn" id="6_qfnet"]
+[ext_resource type="PackedScene" uid="uid://drgcfej8nceb1" path="res://scenes/Sign.tscn" id="7_i7141"]
+[ext_resource type="PackedScene" uid="uid://lbq2te1vjt3g" path="res://scenes/DownSign.tscn" id="9_7r4gi"]
 
 [node name="World" type="Node2D" unique_id=1970420695]
 position = Vector2(3, -1)
+
+[node name="Background" parent="." unique_id=1857493872 instance=ExtResource("1_4mrxx")]
+position = Vector2(645, 357)
+scale = Vector2(1.3895185, 1.3895184)
+animation = &"default"
+autoplay = "default"
 
 [node name="Player" parent="." unique_id=133474484 instance=ExtResource("1_32lhk")]
 position = Vector2(826, 514)
@@ -42,3 +52,22 @@ tile_map_data = PackedByteArray("AAAGAPz/AAADAAAAAAAGAP3/AAAAAAEAAAAGAP7/AAADAAM
 position = Vector2(657, 354)
 zoom = Vector2(1.6, 1.6)
 script = ExtResource("5_45d1s")
+
+[node name="Lamp" parent="." unique_id=540825983 instance=ExtResource("6_qfnet")]
+position = Vector2(645, 349.00003)
+
+[node name="Lamp2" parent="." unique_id=2025832550 instance=ExtResource("6_qfnet")]
+position = Vector2(966.00006, 397.00003)
+
+[node name="Sign" parent="." unique_id=2084154052 instance=ExtResource("7_i7141")]
+position = Vector2(902, 515)
+
+[node name="Sign2" parent="." unique_id=1752336041 instance=ExtResource("7_i7141")]
+position = Vector2(285, 307)
+flip_h = true
+
+[node name="Lamp3" parent="." unique_id=1008310852 instance=ExtResource("6_qfnet")]
+position = Vector2(568, 220.99998)
+
+[node name="DownSign" parent="." unique_id=347164918 instance=ExtResource("9_7r4gi")]
+position = Vector2(549, 515)

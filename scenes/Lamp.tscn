@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c5lp4414fcjoc"]
+
+[ext_resource type="Texture2D" uid="uid://4o73ule728up" path="res://Sprites/miscellaneous/lamp.png" id="1_gosxj"]
+
+[node name="Lamp" type="Sprite2D" unique_id=540825983]
+z_index = -6
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_gosxj")
