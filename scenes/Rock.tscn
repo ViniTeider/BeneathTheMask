@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://6idl23n8lfqr" path="res://Sprites/miscellaneous/rock.png" id="1_bpoff"]
 
 [node name="Rock" type="Sprite2D" unique_id=1176588543]
+z_index = -6
 texture = ExtResource("1_bpoff")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://vy1s8nq6emkk"]
+
+[ext_resource type="Texture2D" uid="uid://c6dxw4s2b2umf" path="res://Sprites/miscellaneous/stalagmite.png" id="1_tsexq"]
+
+[node name="Stalagmite" type="Sprite2D" unique_id=1421476418]
+texture = ExtResource("1_tsexq")

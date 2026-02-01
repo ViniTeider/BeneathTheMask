@@ -17,6 +17,6 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_gosxj")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1693503846]
-position = Vector2(9.536743e-07, -2.3841858e-07)
 color = Color(0.97405916, 0.9853517, 0, 1)
+energy = 0.79
 texture = SubResource("GradientTexture2D_63omg")

@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://lbq2te1vjt3g" path="res://scenes/DownSign.tscn" id="9_7r4gi"]
 [ext_resource type="AudioStream" uid="uid://okr0v25hlxpf" path="res://Sounds/Goofy_Mellow_Menu.mp3" id="10_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://bb7xp80al3td4" path="res://scenes/Rock.tscn" id="11_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://vy1s8nq6emkk" path="res://scenes/Stalagmite.tscn" id="12_q5onr"]
 
 [node name="World" type="Node2D" unique_id=1970420695]
 position = Vector2(3, -1)
@@ -68,7 +69,7 @@ position = Vector2(285, 307)
 flip_h = true
 
 [node name="Lamp3" parent="." unique_id=1008310852 instance=ExtResource("6_qfnet")]
-position = Vector2(568, 220.99998)
+position = Vector2(568, 221.00002)
 
 [node name="DownSign" parent="." unique_id=347164918 instance=ExtResource("9_7r4gi")]
 position = Vector2(549, 515)
@@ -86,3 +87,7 @@ position = Vector2(785, 212)
 
 [node name="Rock" parent="." unique_id=700812097 instance=ExtResource("11_e3hyu")]
 position = Vector2(282, 517)
+
+[node name="Stalagmite2" parent="." unique_id=1421476418 instance=ExtResource("12_q5onr")]
+position = Vector2(520, 291)
+scale = Vector2(1.3895185, 1.3895184)
