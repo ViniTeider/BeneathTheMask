@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://qo1wf3px5pl0"]
 
 [ext_resource type="PackedScene" uid="uid://dre8tx7lexuxc" path="res://scenes/Background.tscn" id="1_4mrxx"]
-[ext_resource type="PackedScene" uid="uid://bjpu0ec1drrbl" path="res://scenes/player.tscn" id="1_32lhk"]
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_p70al"]
 [ext_resource type="Script" uid="uid://d3sghdpu2qfhb" path="res://Scripts/global_camera.gd" id="5_45d1s"]
 [ext_resource type="Script" uid="uid://cph6ivypogtuq" path="res://Scripts/mask_spawner.gd" id="5_p70al"]
