@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c5lp4414fcjoc" path="res://scenes/Lamp.tscn" id="6_qfnet"]
 [ext_resource type="PackedScene" uid="uid://drgcfej8nceb1" path="res://scenes/Sign.tscn" id="7_i7141"]
 [ext_resource type="PackedScene" uid="uid://lbq2te1vjt3g" path="res://scenes/DownSign.tscn" id="9_7r4gi"]
+[ext_resource type="AudioStream" uid="uid://okr0v25hlxpf" path="res://Sounds/Goofy_Mellow_Menu.mp3" id="10_w7kh3"]
 
 [node name="World" type="Node2D" unique_id=1970420695]
 position = Vector2(3, -1)
@@ -70,3 +71,7 @@ position = Vector2(568, 220.99998)
 
 [node name="DownSign" parent="." unique_id=347164918 instance=ExtResource("9_7r4gi")]
 position = Vector2(549, 515)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1092092162]
+stream = ExtResource("10_w7kh3")
+autoplay = true
