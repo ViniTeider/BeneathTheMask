@@ -24,10 +24,6 @@ position = Vector2(645, 357)
 scale = Vector2(1.3895185, 1.3895184)
 autoplay = "default"
 
-[node name="Player" parent="." unique_id=133474484 instance=ExtResource("1_32lhk")]
-position = Vector2(826, 514)
-player_id = 1
-
 [node name="Limits" parent="." unique_id=936848198 instance=ExtResource("7_q2d71")]
 
 [node name="SpawnPoints" parent="." unique_id=766665118 instance=ExtResource("6_y7y61")]
