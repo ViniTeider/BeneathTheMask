@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://drgcfej8nceb1"]
+
+[ext_resource type="Texture2D" uid="uid://b4swkmycs1t2o" path="res://Sprites/miscellaneous/sign.png" id="1_gg7qi"]
+
+[node name="Sign" type="Sprite2D" unique_id=2084154052]
+z_index = -6
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("1_gg7qi")

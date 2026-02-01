@@ -19,6 +19,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_c6cqx"]
 resource_name = "hover"
@@ -36,12 +48,35 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -17), Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -17), Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y7nf4"]
 _data = {
 &"RESET": SubResource("Animation_tgt54"),
 &"hover": SubResource("Animation_c6cqx")
 }
+
+[sub_resource type="Gradient" id="Gradient_qwb5a"]
+offsets = PackedFloat32Array(0.20754717, 0.6415094)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tgt54"]
+gradient = SubResource("Gradient_qwb5a")
+width = 45
+height = 45
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="GenericPickup" type="Area2D" unique_id=1358854170]
 collision_layer = 8
@@ -56,5 +91,11 @@ shape = SubResource("RectangleShape2D_uabdb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1811309291]
 libraries/ = SubResource("AnimationLibrary_y7nf4")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1070483720]
+position = Vector2(9.536743e-07, -2.3841858e-07)
+color = Color(1, 0.68505514, 1, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_tgt54")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -7,7 +7,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
 size = Vector2(11.0115185, 192.83815)
 
-[node name="CharacterBody2D2" type="CharacterBody2D" unique_id=1433225565]
+[sub_resource type="Gradient" id="Gradient_gosxj"]
+offsets = PackedFloat32Array(0.20754717, 0.6415094)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g2els"]
+gradient = SubResource("Gradient_gosxj")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1433225565]
+
 collision_mask = 14
 script = ExtResource("1_3vyb7")
 
@@ -62,6 +74,10 @@ scale_amount_min = 0.0
 scale_amount_max = 5.0
 color = Color(1, 1, 0, 1)
 
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1938263903]
+position = Vector2(9.536743e-07, -2.3841858e-07)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_g2els")
 [node name="WinTimer" type="Timer" parent="." unique_id=732036191]
 wait_time = 4.5
 one_shot = true

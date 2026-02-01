@@ -11,6 +11,10 @@ const DAMAGE_COLDOWN = 1.5
 @onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_particles: CPUParticles2D = $DashParticles
 @onready var win_particles: CPUParticles2D = $WinParticles
+@onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
+
+const GOOFY_MELLOW_ENDING = preload("res://Sounds/Goofy_Mellow_Ending.mp3")
+
 @onready var win_timer: Timer = $WinTimer
 @onready var game_restart_text: Label = $GameRestartText
 
@@ -191,6 +195,8 @@ func _on_dash_coldown_timer_timeout() -> void:
 	can_dash = true
 	
 func on_win() -> void:
+	audio_stream_player.stream = GOOFY_MELLOW_ENDING
+	audio_stream_player.play()
 	win_particles.emitting = true
 	win_timer.start()
 	

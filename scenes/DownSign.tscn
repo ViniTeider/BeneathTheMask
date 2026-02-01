@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://lbq2te1vjt3g"]
+
+[ext_resource type="Texture2D" uid="uid://byy2o67pqj1cn" path="res://Sprites/miscellaneous/down-sign.png" id="1_6we0r"]
+
+[node name="DownSign" type="Sprite2D" unique_id=347164918]
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("1_6we0r")

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c5lp4414fcjoc"]
+
+[ext_resource type="Texture2D" uid="uid://4o73ule728up" path="res://Sprites/miscellaneous/lamp.png" id="1_gosxj"]
+
+[sub_resource type="Gradient" id="Gradient_gosxj"]
+offsets = PackedFloat32Array(0.20754717, 0.3962264, 0.6415094)
+colors = PackedColorArray(1, 1, 1, 1, 0.61956525, 0.61956525, 0.61956525, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_63omg"]
+gradient = SubResource("Gradient_gosxj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Lamp" type="Sprite2D" unique_id=540825983]
+z_index = -6
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_gosxj")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1693503846]
+color = Color(0.97405916, 0.9853517, 0, 1)
+energy = 0.79
+texture = SubResource("GradientTexture2D_63omg")

@@ -23,7 +23,6 @@ atlas = ExtResource("2_tulde")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x1ivd"]
-load_path = "res://.godot/imported/bomber_blue_idle.png-470efdd5a7924459c6632c79752bf529.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8yvsr"]
 atlas = ExtResource("5_1qnna")

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dre8tx7lexuxc"]
+
+[ext_resource type="Texture2D" uid="uid://crgsxsxusnviv" path="res://Sprites/miscellaneous/background.png" id="1_nou1y"]
+[ext_resource type="Texture2D" uid="uid://bvp77u5b1krhk" path="res://Sprites/miscellaneous/background_lightning.png" id="2_dnxxv"]
+[ext_resource type="Script" uid="uid://cxkqeqkw0yf7q" path="res://Scripts/background.gd" id="3_dnxxv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx43m"]
+atlas = ExtResource("2_dnxxv")
+region = Rect2(0, 0, 657, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txrn8"]
+atlas = ExtResource("2_dnxxv")
+region = Rect2(657, 0, 657, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stukw"]
+atlas = ExtResource("2_dnxxv")
+region = Rect2(1314, 0, 657, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ib1v"]
+atlas = ExtResource("2_dnxxv")
+region = Rect2(1971, 0, 657, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ttnm"]
+atlas = ExtResource("2_dnxxv")
+region = Rect2(2628, 0, 657, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ret6"]
+atlas = ExtResource("2_dnxxv")
+region = Rect2(3285, 0, 657, 353)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fwrf6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nou1y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx43m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txrn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stukw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ib1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ttnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ret6")
+}],
+"loop": false,
+"name": &"lightning",
+"speed": 10.0
+}]
+
+[node name="Background" type="AnimatedSprite2D" unique_id=1857493872]
+z_index = -10
+sprite_frames = SubResource("SpriteFrames_fwrf6")
+script = ExtResource("3_dnxxv")
+
+[node name="LightningTimer" type="Timer" parent="." unique_id=141886408]
+wait_time = 3.0
+autostart = true
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[connection signal="timeout" from="LightningTimer" to="." method="_on_lightning_timer_timeout"]

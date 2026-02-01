@@ -1,22 +1,36 @@
 [gd_scene format=3 uid="uid://ck6jbv6rtvhy4"]
 
 [ext_resource type="Script" uid="uid://1l88lg8pe1g" path="res://Scripts/Bullet.gd" id="1_vlxeq"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2ropf"]
-size = Vector2(15, 5)
+[ext_resource type="Texture2D" uid="uid://cm7oxf8okke0y" path="res://Sprites/miscellaneous/bullet.png" id="2_p1sfj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hf8mt"]
-size = Vector2(5, 2)
+size = Vector2(5, 3)
+
+[sub_resource type="Gradient" id="Gradient_p1sfj"]
+offsets = PackedFloat32Array(0, 0.3254717, 0.6179245)
+colors = PackedColorArray(1, 1, 1, 1, 0.46153843, 0.46153843, 0.46153843, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4utqk"]
+gradient = SubResource("Gradient_p1sfj")
+fill = 2
+fill_from = Vector2(0.5029412, 0.4852941)
 
 [node name="Bullet" type="Area2D" unique_id=367997966]
+scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_vlxeq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=30605484]
-texture = SubResource("PlaceholderTexture2D_2ropf")
+texture = ExtResource("2_p1sfj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1317059418]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_hf8mt")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=337443115]
+position = Vector2(9.536743e-07, -2.3841858e-07)
+color = Color(0.9999997, 0.76002777, 0.5266966, 1)
+texture = SubResource("GradientTexture2D_4utqk")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

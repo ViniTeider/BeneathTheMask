@@ -35,6 +35,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(2, 2)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
 
 [sub_resource type="Animation" id="Animation_luf1c"]
 resource_name = "bomb_exploding"
@@ -76,12 +88,33 @@ tracks/2/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4pshg"]
 _data = {
 &"RESET": SubResource("Animation_1xih2"),
 &"bomb_exploding": SubResource("Animation_luf1c")
 }
+
+[sub_resource type="Gradient" id="Gradient_qwb5a"]
+offsets = PackedFloat32Array(0.20754717, 0.6415094)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3e7g0"]
+gradient = SubResource("Gradient_qwb5a")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Bomb" type="RigidBody2D" unique_id=1369718883]
 position = Vector2(1, -1)
@@ -108,6 +141,12 @@ autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1848439829]
 libraries/ = SubResource("AnimationLibrary_4pshg")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=569840719]
+position = Vector2(9.536743e-07, -2.3841858e-07)
+scale = Vector2(2, 2)
+color = Color(4.6205523e-06, 0.9675953, 0.5450817, 1)
+texture = SubResource("GradientTexture2D_3e7g0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="on_explodion"]
