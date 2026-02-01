@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d5wg1bud3cha"]
+
+[node name="Limits" type="Node" unique_id=936848198]
+
+[node name="LimiteChao" type="Marker2D" parent="." unique_id=1257282141]
+unique_name_in_owner = true
+position = Vector2(643, 590)
+
+[node name="LimiteEsquerda" type="Marker2D" parent="." unique_id=1160890790]
+unique_name_in_owner = true
+position = Vector2(253, 395)
+
+[node name="LimiteDireita" type="Marker2D" parent="." unique_id=1913578665]
+unique_name_in_owner = true
+position = Vector2(1065, 395)
+
+[node name="LimiteCeu" type="Marker2D" parent="." unique_id=855691268]
+unique_name_in_owner = true
+position = Vector2(650, 96)

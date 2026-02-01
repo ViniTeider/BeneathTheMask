@@ -3,10 +3,10 @@ extends Camera2D
 var shake_amount = 0.0
 var default_offset = offset
 
-@onready var limite_chao: Marker2D = %LimiteChao
-@onready var limite_esquerda: Marker2D = %LimiteEsquerda
-@onready var limite_direita: Marker2D = %LimiteDireita
-@onready var limite_ceu: Marker2D = %LimiteCeu
+@onready var limite_esquerda: Marker2D = $"../Limits/LimiteEsquerda"
+@onready var limite_direita: Marker2D = $"../Limits/LimiteDireita"
+@onready var limite_ceu: Marker2D = $"../Limits/LimiteCeu"
+@onready var limite_chao: Marker2D = $"../Limits/LimiteChao"
 
 func _ready():
 	set_process(true)

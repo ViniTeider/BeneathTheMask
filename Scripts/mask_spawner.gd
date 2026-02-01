@@ -33,7 +33,7 @@ func spawn_mask() -> void:
 	pickup.picked_up.connect(on_picked_up)
 	pickup.mask_type_to_give = mask
 	
-	get_tree().get_root().add_child.call_deferred(pickup)
+	add_child.call_deferred(pickup)
 	pickup.position.x = spot.position.x
 	pickup.position.y = spot.position.y
 	

@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 const JUMP_VELOCITY = -400.0
@@ -10,11 +11,13 @@ const DAMAGE_COLDOWN = 1.5
 @onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_particles: CPUParticles2D = $DashParticles
 @onready var win_particles: CPUParticles2D = $WinParticles
+@onready var win_timer: Timer = $WinTimer
+@onready var game_restart_text: Label = $GameRestartText
 
-@onready var limite_chao: Marker2D = %LimiteChao
-@onready var limite_esquerda: Marker2D = %LimiteEsquerda
-@onready var limite_direita: Marker2D = %LimiteDireita
-@onready var limite_ceu: Marker2D = %LimiteCeu
+var limite_esquerda: Marker2D
+var limite_chao: Marker2D
+var limite_direita: Marker2D
+var limite_ceu: Marker2D
 
 var current_mask: Enum.MaskType
 var current_weapon: Node = null
@@ -32,22 +35,20 @@ var mask_scenes = {
 	Enum.MaskType.Melee: preload("res://scenes/sword.tscn")
 }
 
-var sprite_frames = {
-	"Player_0": Scenes.PLAYER_0,
-	"Player_0_Bomber": Scenes.PLAYER_0_BOMBER,
-	"Player_0_Melee": Scenes.PLAYER_0_MELEE,
-	"Player_0_Gunner": Scenes.PLAYER_0_GUNNER,
-	"Player_1": Scenes.PLAYER_1,
-	"Player_1_Bomber": Scenes.PLAYER_1_BOMBER,
-	"Player_1_Melee": Scenes.PLAYER_1_MELEE,
-	"Player_1_Gunner": Scenes.PLAYER_1_GUNNER,
-}
+var sprite_frames = Globals.sprite_frames
 
 func _ready() -> void:
 	change_mask(Enum.MaskType.Bomber)
 	sprite_2d.play("idle")
 	sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
 	Globals.players.append(self)
+	
+	var limits = get_parent().limits
+	limite_esquerda = limits.get_node("LimiteEsquerda")
+	limite_direita = limits.get_node("LimiteDireita")
+	limite_chao = limits.get_node("LimiteChao")
+	limite_ceu = limits.get_node("LimiteCeu")
+	
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and (velocity.y < 2000):
@@ -191,3 +192,5 @@ func _on_dash_coldown_timer_timeout() -> void:
 	
 func on_win() -> void:
 	win_particles.emitting = true
+	win_timer.start()
+	
