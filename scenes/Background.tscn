@@ -68,6 +68,8 @@ sprite_frames = SubResource("SpriteFrames_fwrf6")
 script = ExtResource("3_dnxxv")
 
 [node name="LightningTimer" type="Timer" parent="." unique_id=141886408]
+wait_time = 3.0
+autostart = true
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
 [connection signal="timeout" from="LightningTimer" to="." method="_on_lightning_timer_timeout"]

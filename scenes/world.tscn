@@ -16,7 +16,6 @@ position = Vector2(3, -1)
 [node name="Background" parent="." unique_id=1857493872 instance=ExtResource("1_4mrxx")]
 position = Vector2(645, 357)
 scale = Vector2(1.3895185, 1.3895184)
-animation = &"default"
 autoplay = "default"
 
 [node name="Player" parent="." unique_id=133474484 instance=ExtResource("1_32lhk")]

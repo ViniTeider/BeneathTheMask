@@ -1,5 +1,6 @@
 extends AnimatedSprite2D
 @onready var lightning_timer: Timer = $LightningTimer
+@onready var global_camera: Camera2D = $"../GlobalCamera"
 
 var lightning_interval: int 
 var min_time = 10
@@ -10,6 +11,7 @@ func _ready() -> void:
 
 func _on_lightning_timer_timeout() -> void:
 	play("lightning")
+	global_camera.shake(10, 0.5)
 	randomize_timer()
 
 func _on_animation_finished() -> void:
