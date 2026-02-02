@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://fn6yeh61qs03" path="res://Scripts/Player.gd" id="1_3vyb7"]
 [ext_resource type="SpriteFrames" uid="uid://dw4mgj36rcdqp" path="res://SpriteFrames/Player_0.tres" id="2_kyqiw"]
-[ext_resource type="Script" uid="uid://br8d420v2w4ap" path="res://Scenes/game_restart_text.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://br8d420v2w4ap" path="res://Scripts/game_restart_text.gd" id="3_6t5aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
 size = Vector2(11.0115185, 192.83815)

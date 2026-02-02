@@ -100,7 +100,7 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	if position.x < limite_esquerda.position.x:
 		position.x = limite_direita.position.x

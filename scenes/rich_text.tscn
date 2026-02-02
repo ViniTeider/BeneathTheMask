@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cuemqqp8je8l8"]
 
-[ext_resource type="Script" uid="uid://dge6w8bcpvbmf" path="res://rich_text.gd" id="1_tg1cm"]
+[ext_resource type="Script" uid="uid://dge6w8bcpvbmf" path="res://Scripts/rich_text.gd" id="1_tg1cm"]
 
 [node name="RichText" type="RichTextLabel" unique_id=1706598371]
 anchors_preset = 15
