@@ -10,7 +10,7 @@ var speed: float = 50.0
 var parent_direction: float = 0
 var player_id: int
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	sprite_2d.rotation_degrees += 10 * sign(speed)
 
 func on_explodion() -> void:

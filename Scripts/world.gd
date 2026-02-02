@@ -31,7 +31,7 @@ func _ready() -> void:
 		add_child(player)
 		players.append(player)
 
-func _process(delta):
+func _process(_delta):
 	if len(players) == 1:
 		if !game_ended:
 			var player: Player = players.pop_front()

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b2u3gi6qea3yl"]
+
+[ext_resource type="PackedScene" uid="uid://odbv8p38j8g3" path="res://Scenes/world.tscn" id="1_mfa01"]
+[ext_resource type="PackedScene" uid="uid://baanpt6f325c4" path="res://Scenes/player.tscn" id="2_cyft6"]
+
+[node name="TestMapSolo" type="Node2D" unique_id=271337486]
+
+[node name="World" parent="." unique_id=1970420695 instance=ExtResource("1_mfa01")]
+
+[node name="CharacterBody2D" parent="World" unique_id=1433225565 instance=ExtResource("2_cyft6")]
+position = Vector2(494, 511)
