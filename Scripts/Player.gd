@@ -49,11 +49,11 @@ func _ready() -> void:
 	sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
 	Globals.players.append(self)
 	
-	var limits = get_parent().limits
-	limite_esquerda = limits.get_node("LimiteEsquerda")
-	limite_direita = limits.get_node("LimiteDireita")
-	limite_chao = limits.get_node("LimiteChao")
-	limite_ceu = limits.get_node("LimiteCeu")
+	#var limits = get_parent().limits
+	#limite_esquerda = limits.get_node("LimiteEsquerda")
+	#limite_direita = limits.get_node("LimiteDireita")
+	#limite_chao = limits.get_node("LimiteChao")
+	#limite_ceu = limits.get_node("LimiteCeu")
 	
 
 func _physics_process(delta: float) -> void:
@@ -102,14 +102,14 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	
-	if position.x < limite_esquerda.position.x:
-		position.x = limite_direita.position.x
-		
-	if position.x > limite_direita.position.x:
-		position.x = limite_esquerda.position.x
-		
-	if position.y > limite_chao.position.y:
-		position.y = limite_ceu.position.y
+	#if position.x < limite_esquerda.position.x:
+		#position.x = limite_direita.position.x
+		#
+	#if position.x > limite_direita.position.x:
+		#position.x = limite_esquerda.position.x
+		#
+	#if position.y > limite_chao.position.y:
+		#position.y = limite_ceu.position.y
 	
 	if last_direction == 1:
 		sprite_2d.flip_h = false
