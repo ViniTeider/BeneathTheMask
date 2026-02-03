@@ -9,16 +9,17 @@ const DEADZONE_X = 0.2
 const DAMAGE_COLDOWN = 1.5
 
 @export var player_id: int = 0
+@export var starting_mask: Enum.MaskType = -1
+
 @onready var weapon_holder: Node2D = $WeaponHolder
 @onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_particles: CPUParticles2D = $DashParticles
 @onready var win_particles: CPUParticles2D = $WinParticles
 @onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
-
-const GOOFY_MELLOW_ENDING = preload("res://Sounds/Goofy_Mellow_Ending.mp3")
-
 @onready var win_timer: Timer = $WinTimer
 @onready var game_restart_text: Label = $GameRestartText
+
+const GOOFY_MELLOW_ENDING = preload("res://Sounds/Goofy_Mellow_Ending.mp3")
 
 var limite_esquerda: Marker2D
 var limite_chao: Marker2D
@@ -44,7 +45,8 @@ var mask_scenes = {
 var sprite_frames = Globals.sprite_frames
 
 func _ready() -> void:
-	#change_mask(Enum.MaskType.Bomber)
+	if starting_mask != -1:
+		change_mask(starting_mask)
 	sprite_2d.play("idle")
 	sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
 	Globals.players.append(self)
