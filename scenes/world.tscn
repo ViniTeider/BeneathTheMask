@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://br0ed8khjs8d3" path="res://Scripts/world.gd" id="1_p70al"]
 [ext_resource type="PackedScene" uid="uid://c6w2wc4wxdbhu" path="res://Scenes/map_boundary.tscn" id="2_hgpy0"]
 [ext_resource type="Script" uid="uid://d3sghdpu2qfhb" path="res://Scripts/global_camera.gd" id="5_45d1s"]
-[ext_resource type="Script" uid="uid://cph6ivypogtuq" path="res://Scripts/mask_spawner.gd" id="5_p70al"]
+[ext_resource type="PackedScene" uid="uid://br6xs7031u53s" path="res://Scenes/mask_spawner.tscn" id="5_hgpy0"]
 [ext_resource type="PackedScene" uid="uid://dtp8pau0iqndc" path="res://Scenes/MainTileLayer.tscn" id="6_45d1s"]
 [ext_resource type="PackedScene" uid="uid://c5lp4414fcjoc" path="res://Scenes/Lamp.tscn" id="6_qfnet"]
 [ext_resource type="PackedScene" uid="uid://dbn3wx3f6e610" path="res://Scenes/spawn_points.tscn" id="6_y7y61"]
@@ -31,20 +31,7 @@ frame_progress = 0.067650825
 
 [node name="SpawnPoints" parent="." unique_id=766665118 instance=ExtResource("6_y7y61")]
 
-[node name="MaskSpawner" type="Node" parent="." unique_id=1716666971]
-script = ExtResource("5_p70al")
-
-[node name="Marker2D" type="Marker2D" parent="MaskSpawner" unique_id=2144002793]
-position = Vector2(653, 199)
-
-[node name="Marker2D2" type="Marker2D" parent="MaskSpawner" unique_id=861950437]
-position = Vector2(601, 354)
-
-[node name="Marker2D3" type="Marker2D" parent="MaskSpawner" unique_id=1103456154]
-position = Vector2(1046, 331)
-
-[node name="Marker2D4" type="Marker2D" parent="MaskSpawner" unique_id=498960366]
-position = Vector2(289, 305)
+[node name="MaskSpawner" parent="." unique_id=697640406 instance=ExtResource("5_hgpy0")]
 
 [node name="Stalagmite2" parent="." unique_id=1421476418 instance=ExtResource("12_q5onr")]
 position = Vector2(520, 291)

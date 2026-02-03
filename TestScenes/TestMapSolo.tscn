@@ -7,6 +7,9 @@
 
 [node name="World" parent="." unique_id=1970420695 instance=ExtResource("1_mfa01")]
 
+[node name="MaskSpawner" parent="World" index="3" unique_id=697640406]
+MASK_SPAWN_COOLDOWN = 4.0
+
 [node name="GlobalCamera" parent="World" index="7" unique_id=1199191549]
 limit_left = -400
 

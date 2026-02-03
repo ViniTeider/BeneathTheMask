@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://br6xs7031u53s"]
+
+[ext_resource type="Script" uid="uid://cph6ivypogtuq" path="res://Scripts/mask_spawner.gd" id="1_vijb3"]
+
+[node name="MaskSpawner" type="Node" unique_id=697640406]
+script = ExtResource("1_vijb3")
+
+[node name="Spots" type="Node" parent="." unique_id=955895281]
+
+[node name="Marker2D" type="Marker2D" parent="Spots" unique_id=1020850340]
+position = Vector2(653, 199)
+
+[node name="Marker2D2" type="Marker2D" parent="Spots" unique_id=834554016]
+position = Vector2(601, 354)
+
+[node name="Marker2D3" type="Marker2D" parent="Spots" unique_id=157367015]
+position = Vector2(1046, 331)
+
+[node name="Marker2D4" type="Marker2D" parent="Spots" unique_id=1802333147]
+position = Vector2(289, 305)
+
+[node name="SpawnMaskTimer" type="Timer" parent="." unique_id=415848485]
+one_shot = true
+
+[connection signal="timeout" from="SpawnMaskTimer" to="." method="spawn_mask"]
