@@ -2,35 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://odbv8p38j8g3" path="res://Scenes/world.tscn" id="1_mfa01"]
 [ext_resource type="PackedScene" uid="uid://baanpt6f325c4" path="res://Scenes/player.tscn" id="2_cyft6"]
-[ext_resource type="Script" uid="uid://bexjkbrcb1lcm" path="res://Scripts/map_boundary.gd" id="3_cyft6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnnpf"]
-size = Vector2(818, 455)
 
 [node name="TestMapSolo" type="Node2D" unique_id=1254443354]
 
 [node name="World" parent="." unique_id=1970420695 instance=ExtResource("1_mfa01")]
 
+[node name="GlobalCamera" parent="World" index="7" unique_id=1199191549]
+limit_left = -400
+
 [node name="CharacterBody2D" parent="World" unique_id=1433225565 instance=ExtResource("2_cyft6")]
 position = Vector2(505, 506)
 
-[node name="MapBoundary" type="Area2D" parent="World" unique_id=1240748897]
-position = Vector2(668, 343)
-collision_layer = 0
-collision_mask = 5
-script = ExtResource("3_cyft6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/MapBoundary" unique_id=2026237305]
-position = Vector2(-1, 13.5)
-shape = SubResource("RectangleShape2D_vnnpf")
-
-[node name="Top" type="Marker2D" parent="World/MapBoundary" unique_id=1946519362]
-
-[node name="Bottom" type="Marker2D" parent="World/MapBoundary" unique_id=1727085798]
-
-[node name="Left" type="Marker2D" parent="World/MapBoundary" unique_id=1737003214]
-
-[node name="Right" type="Marker2D" parent="World/MapBoundary" unique_id=2091058763]
-
-[connection signal="area_exited" from="World/MapBoundary" to="World/MapBoundary" method="_on_area_exited"]
-[connection signal="body_exited" from="World/MapBoundary" to="World/MapBoundary" method="_on_body_exited"]
+[editable path="World"]
+[editable path="World/SpawnPoints"]

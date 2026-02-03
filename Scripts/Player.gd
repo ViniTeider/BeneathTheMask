@@ -48,13 +48,7 @@ func _ready() -> void:
 	sprite_2d.play("idle")
 	sprite_2d.sprite_frames = sprite_frames["Player_"+str(player_id)]
 	Globals.players.append(self)
-	
-	#var limits = get_parent().limits
-	#limite_esquerda = limits.get_node("LimiteEsquerda")
-	#limite_direita = limits.get_node("LimiteDireita")
-	#limite_chao = limits.get_node("LimiteChao")
-	#limite_ceu = limits.get_node("LimiteCeu")
-	
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and (velocity.y < 2000):
