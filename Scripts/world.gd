@@ -1,14 +1,13 @@
+class_name World
 extends Node2D
 
+@onready var global_camera: GlobalCamera = $GlobalCamera
+@onready var spawn_points: Node = $SpawnPoints
+@onready var map_boundary: MapBoundary = $MapBoundary
 
 const player_scene = preload("res://Scenes/Player.tscn")
-@onready var spawn_points: Node = $SpawnPoints
+
 var points: Array[Node]
-
-@onready var global_camera: Camera2D = $GlobalCamera
-
-@onready var limits = $Limits
-
 var players: Array
 var game_ended = false
 
@@ -17,6 +16,8 @@ func _on_player_death(player):
 	player.queue_free()
 
 func _ready() -> void:
+	global_camera.set_level_limits(map_boundary.limits)
+	
 	points = spawn_points.get_children()
 	var device_ids = Globals.device_ids
 	

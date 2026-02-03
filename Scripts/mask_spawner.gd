@@ -20,7 +20,7 @@ func get_random_spot() -> Marker2D:
 	var spot = spots.pop_front()
 	return spot
 
-func get_random_mask() -> int:
+func get_random_mask() -> Enum.MaskType:
 	var masks = Scenes.mask_scenes.keys()
 	var i = randi_range(0, len(masks)-1)
 	var mask = masks[i]

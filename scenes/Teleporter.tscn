@@ -1,12 +1,21 @@
 [gd_scene format=3 uid="uid://ckp8h4gcb5b0j"]
 
-[ext_resource type="Script" uid="uid://c8t0ojcfhecky" path="res://Scripts/teleporter.gd" id="1_jdjlm"]
+[sub_resource type="GDScript" id="GDScript_jycew"]
+script/source = "#extends Area2D
+#
+#@export var target_exit: Node2D
+#
+#func _on_body_entered(body: Node2D) -> void:
+	#if body.has_method(\"change_mask\") and target_exit:
+		#body.global_position = target_exit.global_position
+	#elif not body.has_method(\"change_mask\"):
+		#body.queue_free()
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jdjlm"]
 
-[node name="Teleporter" type="Area2D" unique_id=1961795099 node_paths=PackedStringArray("target_exit")]
-script = ExtResource("1_jdjlm")
-target_exit = NodePath("Marker2D")
+[node name="Teleporter" type="Area2D" unique_id=1961795099]
+script = SubResource("GDScript_jycew")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=95183047]
 shape = SubResource("RectangleShape2D_jdjlm")

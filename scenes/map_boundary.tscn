@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c6w2wc4wxdbhu"]
+
+[ext_resource type="Script" uid="uid://bexjkbrcb1lcm" path="res://Scripts/map_boundary.gd" id="1_etwyg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnnpf"]
+size = Vector2(818, 455)
+
+[node name="MapBoundary" type="Area2D" unique_id=68516137]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_etwyg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1252192401]
+position = Vector2(-1, 13.5)
+shape = SubResource("RectangleShape2D_vnnpf")
+
+[node name="Top" type="Marker2D" parent="." unique_id=1655503520]
+
+[node name="Bottom" type="Marker2D" parent="." unique_id=1162683325]
+
+[node name="Left" type="Marker2D" parent="." unique_id=647097668]
+
+[node name="Right" type="Marker2D" parent="." unique_id=1457741806]
+
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
