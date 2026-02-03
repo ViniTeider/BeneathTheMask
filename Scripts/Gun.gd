@@ -16,10 +16,11 @@ func attack():
 	shoot_timer.start()
 	Utils.vibrate_controller(player_id, 0.6, 0, 0.2)
 	
-	var b = BULLET.instantiate()
+	var b: Bullet = BULLET.instantiate()
 	get_tree().get_root().add_child(b)
 	b.global_position = marker_2d.global_position
 	b.global_rotation = marker_2d.global_rotation
+	b.player_owner = get_parent().get_parent()
 
 func on_shoot_timer():
 	can_fire = true
