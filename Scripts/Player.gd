@@ -95,16 +95,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
-	
-	#if position.x < limite_esquerda.position.x:
-		#position.x = limite_direita.position.x
-		#
-	#if position.x > limite_direita.position.x:
-		#position.x = limite_esquerda.position.x
-		#
-	#if position.y > limite_chao.position.y:
-		#position.y = limite_ceu.position.y
-	
+
 	if last_direction == 1:
 		sprite_2d.flip_h = false
 	elif last_direction == -1:
